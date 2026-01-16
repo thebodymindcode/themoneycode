@@ -314,6 +314,32 @@
             .pricing-grid { grid-template-columns: 1fr; }
             .card-premium { padding: 40px 32px; }
         }
+        /* Mobile responsive для секций */
+        @media (max-width: 1024px) {
+            .section h2 {
+                font-size: clamp(36px, 8vw, 56px) !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Grid 3 колонки -> 1 колонка */
+            div[style*="grid-template-columns: repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Grid 2 колонки принципов -> 1 колонка */
+            div[style*="grid-template-columns: 160px 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+                text-align: center;
+            }
+            
+            div[style*="grid-template-columns: 160px 1fr"] > div:first-child {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -420,6 +446,308 @@
                 <h3 style="font-size: 28px; margin-bottom: 24px; font-weight: 600;">Рабочая Тетрадь</h3>
                 <p style="color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 16px;">225+ полей для проработки</p>
                 <p style="color: rgba(255,255,255,0.5); font-size: 14px;">Структурированный PDF</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+    <!-- ДЕНЬГИ — ЭТО НЕ... (ULTRA PREMIUM) -->
+    <section class="section">
+        <div style="text-align: center; margin-bottom: 100px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 96px); font-weight: 800; margin-bottom: 32px; line-height: 1;">
+                Деньги — это <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">НЕ</span>...
+            </h2>
+            <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 24px;"></div>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase;">Развенчиваем популярные заблуждения</p>
+        </div>
+        
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201, 169, 97, 0.1);">
+            <!-- Карточка 1 -->
+            <div style="padding: 60px 40px; background: var(--dark); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">01</div>
+                <div style="width: 48px; height: 48px; margin-bottom: 32px; border: 1px solid var(--gold); position: relative;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                </div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.5px;">НЕ результат<br/>проявленности</h3>
+                <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 15px;">Ты можешь быть известным, но без денег. Популярность ≠ деньги.</p>
+            </div>
+            
+            <!-- Карточка 2 -->
+            <div style="padding: 60px 40px; background: var(--dark); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">02</div>
+                <div style="width: 48px; height: 48px; margin-bottom: 32px; border: 1px solid var(--gold); position: relative;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                </div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.5px;">НЕ результат<br/>энергии</h3>
+                <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 15px;">Все чакры могут светиться ярким огнём. Но денег не будет.</p>
+            </div>
+            
+            <!-- Карточка 3 -->
+            <div style="padding: 60px 40px; background: var(--dark); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">03</div>
+                <div style="width: 48px; height: 48px; margin-bottom: 32px; border: 1px solid var(--gold); position: relative;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                </div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.5px;">НЕ результат<br/>ценности</h3>
+                <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 15px;">Врачи спасают жизни — самое ценное. Но часто без денег.</p>
+            </div>
+            
+            <!-- Карточка 4 -->
+            <div style="padding: 60px 40px; background: var(--dark); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">04</div>
+                <div style="width: 48px; height: 48px; margin-bottom: 32px; border: 1px solid var(--gold); position: relative;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                </div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.5px;">НЕ результат<br/>ума</h3>
+                <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 15px;">Иначе самыми богатыми были бы профессора и учёные. Но это не так.</p>
+            </div>
+            
+            <!-- Карточка 5 -->
+            <div style="padding: 60px 40px; background: var(--dark); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">05</div>
+                <div style="width: 48px; height: 48px; margin-bottom: 32px; border: 1px solid var(--gold); position: relative;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                </div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.5px;">НЕ результат<br/>труда</h3>
+                <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 15px;">Самыми богатыми были бы грузчики и шахтёры. Но это не так.</p>
+            </div>
+            
+            <!-- Карточка 6 -->
+            <div style="padding: 60px 40px; background: var(--dark); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">06</div>
+                <div style="width: 48px; height: 48px; margin-bottom: 32px; border: 1px solid var(--gold); position: relative;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); width: 24px; height: 1px; background: var(--gold);"></div>
+                </div>
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.5px;">НЕ результат<br/>опасности</h3>
+                <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 15px;">Тогда самыми богатыми были бы солдаты. Но это не так.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ЦИТАТА (ULTRA PREMIUM) -->
+    <section class="section" style="padding: 120px 40px;">
+        <div style="max-width: 900px; margin: 0 auto; text-align: center; position: relative;">
+            <!-- Decorative quotes -->
+            <div style="position: absolute; top: -40px; left: 0; font-family: 'Playfair Display', serif; font-size: 200px; color: rgba(201, 169, 97, 0.05); line-height: 1;">"</div>
+            
+            <div style="position: relative; z-index: 1;">
+                <p style="font-family: 'Playfair Display', serif; font-size: clamp(28px, 4.5vw, 42px); line-height: 1.6; margin-bottom: 60px; font-weight: 400; color: rgba(255,255,255,0.95);">
+                    Ты можешь быть очень хорошим человеком,<br/>
+                    и всем рядом с тобой будет хорошо.
+                </p>
+                
+                <div style="width: 80px; height: 1px; background: var(--gold); margin: 0 auto 60px;"></div>
+                
+                <p style="font-size: clamp(24px, 4vw, 36px); line-height: 1.6; margin-bottom: 80px; font-weight: 300;">
+                    Но <span style="color: var(--gold-light); font-weight: 600;">платить тебе не будут</span>.
+                </p>
+                
+                <div style="padding: 60px; border: 1px solid rgba(201, 169, 97, 0.2); background: rgba(201, 169, 97, 0.02); margin-top: 80px;">
+                    <p style="font-size: 20px; line-height: 1.8; margin-bottom: 32px; color: rgba(255,255,255,0.9);">
+                        Зато будут платить тем, кого хорошим не назвать.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);">
+                        Они не занимаются практиками, не ходят в терапию,<br/>не жалеют животных и пьют алкоголь, но деньги у них есть.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ФИЛОСОФСКИЙ БЛОК (ULTRA PREMIUM) -->
+    <section class="section" style="padding: 120px 40px; background: linear-gradient(180deg, transparent, rgba(201, 169, 97, 0.02), transparent);">
+        <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+            <p style="font-family: 'Playfair Display', serif; font-size: clamp(32px, 5.5vw, 52px); line-height: 1.5; margin-bottom: 80px; font-weight: 400; color: rgba(255,255,255,0.95);">
+                Получается, есть хорошие с деньгами и без них,<br/>
+                а есть плохие с деньгами и без них.
+            </p>
+            
+            <div style="width: 200px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 80px;"></div>
+            
+            <p style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 6.5vw, 64px); line-height: 1.3; font-weight: 700; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Тогда в чём причина денег?
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 7 ПРИНЦИПОВ ДЕНЕГ (ULTRA PREMIUM) -->
+    <section class="section">
+        <div style="text-align: center; margin-bottom: 100px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 96px); font-weight: 800; margin-bottom: 32px; line-height: 1;">
+                7 Принципов <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Денег</span>
+            </h2>
+            <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 24px;"></div>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase;">Как на самом деле работают деньги</p>
+        </div>
+        
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 80px;">
+            <!-- Принцип 01: БЕЗОПАСНОСТЬ -->
+            <div style="display: grid; grid-template-columns: 160px 1fr; gap: 60px; align-items: start;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; line-height: 1; background: linear-gradient(180deg, var(--gold), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px;">01</div>
+                    <!-- SVG: Shield -->
+                    <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto;">
+                        <path d="M40 10L15 20V35C15 51 25 64 40 70C55 64 65 51 65 35V20L40 10Z" stroke="#C9A961" stroke-width="2" fill="none"/>
+                        <path d="M40 30V45M40 50V52" stroke="#C9A961" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px;">Принцип безопасности</h3>
+                    <div style="width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px;"></div>
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 24px;">
+                        В детстве мы получали безопасность от родителей. Наша безопасность зависела не от наших действий, а от настроения взрослых.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);">
+                        Ощущение безопасности связалось в мозгу с одобрением со стороны значимых людей. «Будь хорошим — и будешь в безопасности» — этот код работает всю жизнь.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Принцип 02: КОНФЛИКТ -->
+            <div style="display: grid; grid-template-columns: 160px 1fr; gap: 60px; align-items: start;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; line-height: 1; background: linear-gradient(180deg, var(--gold), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px;">02</div>
+                    <!-- SVG: Two arrows opposite -->
+                    <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto;">
+                        <path d="M20 35L35 20L35 30L45 30L45 20L60 35M20 45L35 60L35 50L45 50L45 60L60 45" stroke="#C9A961" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px;">Принцип конфликта</h3>
+                    <div style="width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px;"></div>
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 24px;">
+                        Мы хотим денег. Но подсознание хочет безопасности — одобрения значимых фигур. А они часто против денег.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);">
+                        Сознание говорит: "Хочу заработать". Подсознание шепчет: "Если заработаешь — тебя осудят, отвергнут". И подсознание всегда сильнее.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Принцип 03: САБОТАЖ -->
+            <div style="display: grid; grid-template-columns: 160px 1fr; gap: 60px; align-items: start;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; line-height: 1; background: linear-gradient(180deg, var(--gold), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px;">03</div>
+                    <!-- SVG: Broken chain -->
+                    <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto;">
+                        <path d="M25 35L35 25M45 55L55 45" stroke="#C9A961" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="30" cy="30" r="8" stroke="#C9A961" stroke-width="2" fill="none"/>
+                        <circle cx="50" cy="50" r="8" stroke="#C9A961" stroke-width="2" fill="none"/>
+                        <path d="M35 40L45 40" stroke="#C9A961" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="3 3"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px;">Принцип саботажа</h3>
+                    <div style="width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px;"></div>
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 24px;">
+                        Саботаж — не лень. Это защитный механизм мозга. Когда деньги приходят, мозг включает тревогу: "Опасность! Сейчас осудят!"
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);">
+                        И запускается автоматика: откладывание, импульсивные траты, разрушение договорённостей. Мозг возвращает тебя в безопасную зону — без денег.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Принцип 04: ПОТОЛОК -->
+            <div style="display: grid; grid-template-columns: 160px 1fr; gap: 60px; align-items: start;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; line-height: 1; background: linear-gradient(180deg, var(--gold), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px;">04</div>
+                    <!-- SVG: Ceiling/limit -->
+                    <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto;">
+                        <line x1="15" y1="25" x2="65" y2="25" stroke="#C9A961" stroke-width="3"/>
+                        <path d="M40 35L40 60M35 55L40 60L45 55" stroke="#C9A961" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M30 50L30 55M50 50L50 55" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px;">Принцип потолка</h3>
+                    <div style="width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px;"></div>
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 24px;">
+                        У каждого есть денежный потолок — максимум, который мозг считает безопасным. Это не про рынок. Это про внутреннюю разрешённую сумму.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);">
+                        Когда доход приближается к потолку, включается саботаж. Пока не изменишь код — потолок не сдвинется.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Принцип 05: НЕВИДИМОЕ -->
+            <div style="display: grid; grid-template-columns: 160px 1fr; gap: 60px; align-items: start;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; line-height: 1; background: linear-gradient(180deg, var(--gold), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px;">05</div>
+                    <!-- SVG: Eye closed -->
+                    <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto;">
+                        <path d="M15 40C15 40 25 25 40 25C55 25 65 40 65 40C65 40 55 55 40 55C25 55 15 40 15 40Z" stroke="#C9A961" stroke-width="2" fill="none"/>
+                        <line x1="20" y1="35" x2="60" y2="45" stroke="#C9A961" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px;">Принцип невидимого</h3>
+                    <div style="width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px;"></div>
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 24px;">
+                        Мы не видим свой код. Мы думаем, что проблема в экономике, клиентах, конкуренции, обстоятельствах. Но проблема в коде.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);">
+                        Код работает автоматически. Ты не замечаешь, как сам создаёшь ситуации, где денег нет. Первый шаг — увидеть код.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Принцип 06: ВЫБОР -->
+            <div style="display: grid; grid-template-columns: 160px 1fr; gap: 60px; align-items: start;">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; line-height: 1; background: linear-gradient(180deg, var(--gold), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px;">06</div>
+                    <!-- SVG: Paths/choice -->
+                    <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto;">
+                        <path d="M40 60L40 40M40 40L25 25M40 40L55 25" stroke="#C9A961" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="25" cy="25" r="5" stroke="#C9A961" stroke-width="2" fill="none"/>
+                        <circle cx="55" cy="25" r="5" stroke="#C9A961" stroke-width="2" fill="none"/>
+                        <circle cx="40" cy="60" r="5" stroke="#C9A961" stroke-width="2" fill="#C9A961"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px;">Принцип выбора</h3>
+                    <div style="width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px;"></div>
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 24px;">
+                        Код можно менять. Мозг пластичен. Новые нейронные связи формируются через осознанную практику, повторение, опыт.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);">
+                        Нужно: увидеть старый код → понять источник → создать новый → закрепить действиями. За 14 дней можно заложить фундамент.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Принцип 07: ДЕЙСТВИЕ (ОСОБЕННЫЙ) -->
+            <div style="display: grid; grid-template-columns: 160px 1fr; gap: 60px; align-items: start; padding: 60px; border: 2px solid var(--gold); background: linear-gradient(135deg, rgba(201, 169, 97, 0.05), transparent);">
+                <div style="text-align: center;">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 800; line-height: 1; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px;">07</div>
+                    <!-- SVG: Lightning/action -->
+                    <svg width="80" height="80" viewBox="0 0 80 80" style="margin: 0 auto;">
+                        <path d="M45 15L25 45H40L35 65L55 35H40L45 15Z" stroke="#C9A961" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Принцип действия</h3>
+                    <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin-bottom: 32px;"></div>
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.95); margin-bottom: 24px; font-weight: 500;">
+                        Понимание — это не изменение. Изменение — это практика. Каждый день. Маленькими шагами. Без перфекционизма.
+                    </p>
+                    <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7);">
+                        Тренинг даёт техники. Но работать с ними будешь ты. 14 дней — это старт. Дальше код становится твоей новой нормой.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
