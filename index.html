@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КОД ДЕНЕГ — Трансформация за 14 дней</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #FFD700;
+            --dark: #0a0a0a;
+            --dark-card: #1a1a1a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--dark);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .font-display { font-family: 'Cormorant Garamond', serif; }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--dark);
+            font-weight: 600;
+            padding: 18px 48px;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            border: none;
+        }
+        
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 16px 40px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+        
+        .card {
+            background: var(--dark-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(212, 175, 55, 0.2);
+        }
+        
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 80px 0;
+        }
+        
+        .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 120px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--gold);
+            opacity: 0.15;
+            position: absolute;
+            top: -40px;
+            left: 0;
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+        
+        /* SVG Icons Animation */
+        .icon-animate {
+            transition: transform 0.3s ease;
+        }
+        
+        .icon-animate:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Timeline Styles */
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 30px;
+            bottom: -30px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--gold), transparent);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 4px solid var(--dark);
+            z-index: 2;
+        }
+        
+        /* Stats Counter */
+        .stat-number {
+            font-size: 64px;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--gold);
+        }
+        
+        @media (max-width: 768px) {
+            .btn-gold { padding: 16px 32px; font-size: 16px; }
+            .number { font-size: 80px; }
+            .stat-number { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="container mx-auto px-6 py-20 max-w-6xl relative z-10">
+            <div class="text-center">
+                <div class="animate-fade-in-up delay-100">
+                    <p class="text-sm uppercase tracking-[4px] mb-6" style="color: var(--gold);">Архитектура Сознания</p>
+                </div>
+                
+                <h1 class="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-8 animate-fade-in-up delay-200">
+                    КОД <span class="gold-gradient">ДЕНЕГ</span>
+                </h1>
+                
+                <div class="animate-fade-in-up delay-300">
+                    <p class="text-3xl md:text-4xl mb-6 font-light">Почему к одним людям</p>
+                    <p class="text-3xl md:text-4xl mb-12 font-light">деньги приходят <span class="gold-gradient font-semibold">легко и стабильно</span>,</p>
+                    <p class="text-3xl md:text-4xl mb-12 font-light">а другие годами <span class="text-red-400">качаются на качелях</span>?</p>
+                </div>
+                
+                <div class="animate-fade-in-up delay-400">
+                    <p class="text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                        Твой доход определяется не рынком, не профессией и не удачей.<br/>
+                        А твоими <span class="gold-gradient font-semibold">внутренними программами</span>, заложенными в детстве.
+                    </p>
+                </div>
+                
+                <div class="animate-fade-in-up delay-500 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="btn-gold">Переписать Код →</button>
+                    <button class="btn-outline">Смотреть видео ▶</button>
+                </div>
+                
+                <div class="animate-fade-in-up delay-600 mt-12">
+                    <p class="text-sm text-gray-500">⚡ Старт 1 февраля • Осталось 8 мест • Скидка до 25 января</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Декоративные элементы -->
+        <div class="absolute top-1/4 left-10 w-64 h-64 rounded-full opacity-10 blur-3xl" style="background: var(--gold);"></div>
+        <div class="absolute bottom-1/4 right-10 w-96 h-96 rounded-full opacity-10 blur-3xl" style="background: var(--gold);"></div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-20 relative border-y border-gray-800">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="stat-number mb-2">5</div>
+                    <p class="text-gray-400">живых встреч</p>
+                </div>
+                <div class="text-center">
+                    <div class="stat-number mb-2">14</div>
+                    <p class="text-gray-400">дней трансформации</p>
+                </div>
+                <div class="text-center">
+                    <div class="stat-number mb-2">19</div>
+                    <p class="text-gray-400">практик</p>
+                </div>
+                <div class="text-center">
+                    <div class="stat-number mb-2">17</div>
+                    <p class="text-gray-400">топовых экспертов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- РАЗВЕНЧАНИЕ МИФОВ -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">
+                    Деньги — это <span class="gold-gradient">НЕ</span>...
+                </h2>
+                <p class="text-xl text-gray-400">Развенчиваем популярные заблуждения</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <!-- Миф 1 -->
+                <div class="card flex items-start gap-6">
+                    <svg class="w-16 h-16 flex-shrink-0 icon-animate" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="20" y1="20" x2="44" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                        <line x1="44" y1="20" x2="20" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">НЕ результат проявленности</h3>
+                        <p class="text-gray-400">Ты можешь быть известным, но без денег. Популярность ≠ деньги.</p>
+                    </div>
+                </div>
+                
+                <!-- Миф 2 -->
+                <div class="card flex items-start gap-6">
+                    <svg class="w-16 h-16 flex-shrink-0 icon-animate" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="20" y1="20" x2="44" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                        <line x1="44" y1="20" x2="20" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">НЕ результат энергии</h3>
+                        <p class="text-gray-400">Все чакры могут светиться ярким огнём. Но денег не будет.</p>
+                    </div>
+                </div>
+                
+                <!-- Миф 3 -->
+                <div class="card flex items-start gap-6">
+                    <svg class="w-16 h-16 flex-shrink-0 icon-animate" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="20" y1="20" x2="44" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                        <line x1="44" y1="20" x2="20" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">НЕ результат ценности</h3>
+                        <p class="text-gray-400">Врачи спасают жизни — самое ценное. Но часто без денег.</p>
+                    </div>
+                </div>
+                
+                <!-- Миф 4 -->
+                <div class="card flex items-start gap-6">
+                    <svg class="w-16 h-16 flex-shrink-0 icon-animate" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="20" y1="20" x2="44" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                        <line x1="44" y1="20" x2="20" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">НЕ результат ума</h3>
+                        <p class="text-gray-400">Иначе самыми богатыми были бы профессоры и учёные. Но это не так.</p>
+                    </div>
+                </div>
+                
+                <!-- Миф 5 -->
+                <div class="card flex items-start gap-6">
+                    <svg class="w-16 h-16 flex-shrink-0 icon-animate" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="20" y1="20" x2="44" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                        <line x1="44" y1="20" x2="20" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">НЕ результат труда</h3>
+                        <p class="text-gray-400">Самыми богатыми были бы грузчики и шахтёры. Но это не так.</p>
+                    </div>
+                </div>
+                
+                <!-- Миф 6 -->
+                <div class="card flex items-start gap-6">
+                    <svg class="w-16 h-16 flex-shrink-0 icon-animate" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="30" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="20" y1="20" x2="44" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                        <line x1="44" y1="20" x2="20" y2="44" stroke="#D4AF37" stroke-width="3"/>
+                    </svg>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">НЕ результат опасности</h3>
+                        <p class="text-gray-400">Тогда самыми богатыми были бы солдаты. Но это не так.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-20">
+                <div class="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-yellow-700/30 rounded-2xl p-12 max-w-4xl mx-auto">
+                    <p class="text-3xl font-light mb-6">Ты можешь быть <span class="text-white font-semibold">очень хорошим человеком</span>,</p>
+                    <p class="text-3xl font-light mb-6">и всем рядом с тобой будет хорошо.</p>
+                    <p class="text-3xl font-light mb-8">Но <span class="text-red-400 font-semibold">платить тебе не будут</span>.</p>
+                    <div class="divider my-8"></div>
+                    <p class="text-2xl font-light mb-4">Зато будут платить тем, кого <span class="text-white">хорошим не назвать</span>.</p>
+                    <p class="text-xl text-gray-400 mt-6">Они не занимаются практиками, не ходят в терапию, не жалеют животных<br/>и пьют алкоголь, но <span class="gold-gradient font-semibold">деньги у них есть</span>.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-20">
+                <h3 class="text-4xl font-display font-bold mb-6">
+                    Получается, есть <span class="text-green-400">хорошие</span> с деньгами и без них,<br/>
+                    а есть <span class="text-red-400">плохие</span> с деньгами и без них.
+                </h3>
+                <p class="text-3xl font-light mt-8">Тогда <span class="gold-gradient font-semibold">в чём причина денег?</span></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- 9 ПРИНЦИПОВ -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl md:text-7xl font-bold mb-6">
+                    9 Принципов <span class="gold-gradient">Денег</span>
+                </h2>
+                <p class="text-2xl text-gray-400">Как на самом деле работают деньги</p>
+            </div>
+            
+            <!-- Принцип 1 -->
+            <div class="card mb-12 relative">
+                <div class="number">01</div>
+                <div class="relative z-10 pt-12">
+                    <div class="flex items-center gap-6 mb-8">
+                        <svg class="w-20 h-20 flex-shrink-0" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="28" stroke="#D4AF37" stroke-width="2"/>
+                            <path d="M32 16v32M20 28h24" stroke="#D4AF37" stroke-width="3"/>
+                        </svg>
+                        <h3 class="text-3xl font-display font-bold">Принцип безопасности</h3>
+                    </div>
+                    <div class="bg-black/30 rounded-lg p-8 mb-6">
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            В детстве мы получали безопасность от родителей. Наша безопасность зависела не от наших действий, 
+                            а от настроения взрослых.
+                        </p>
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            Ощущение безопасности связалось в мозгу с одобрением со стороны значимых людей. 
+                            <span class="text-white font-semibold">«Будь хорошим — и тебе можно будет жить».</span>
+                        </p>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            Во взрослой жизни произошёл <span class="gold-gradient font-semibold">перенос с родителей на деньги</span>. 
+                            Мы воспринимаем деньги как обратную связь от мира: «Можно ли мне жить?»
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-yellow-600 pl-6 py-4">
+                        <p class="text-2xl font-display font-semibold gold-gradient">
+                            «Деньги — это инструмент для реализации целей. И не более того»
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Принцип 2 -->
+            <div class="card mb-12 relative">
+                <div class="number">02</div>
+                <div class="relative z-10 pt-12">
+                    <div class="flex items-center gap-6 mb-8">
+                        <svg class="w-20 h-20 flex-shrink-0" viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="28" stroke="#D4AF37" stroke-width="2"/>
+                            <circle cx="32" cy="28" r="8" stroke="#D4AF37" stroke-width="2"/>
+                            <path d="M20 50c0-8 5-12 12-12s12 4 12 12" stroke="#D4AF37" stroke-width="2"/>
+                        </svg>
+                        <h3 class="text-3xl font-display font-bold">Принцип сознания</h3>
+                    </div>
+                    <div class="bg-black/30 rounded-lg p-8 mb-6">
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            Когда произошёл перенос на деньги, ты начал вести себя по отношению к ним так, 
+                            будто пытаешься им <span class="text-white font-semibold">понравиться</span>.
+                        </p>
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            А когда это не срабатывает — можешь на них <span class="text-red-400">обижаться</span>.
+                        </p>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            Ты относишься к деньгам как к живому организму, наделённому сознанием. 
+                            И пытаешься с ним договориться, как когда-то со значимыми взрослыми.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-yellow-600 pl-6 py-4">
+                        <p class="text-2xl font-display font-semibold gold-gradient">
+                            «Деньги не обладают сознанием. У них нет эмоций. У них нет морали. Им всё равно, что ты чувствуешь»
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Принцип 3 -->
+            <div class="card mb-12 relative">
+                <div class="number">03</div>
+                <div class="relative z-10 pt-12">
+                    <div class="flex items-center gap-6 mb-8">
+                        <svg class="w-20 h-20 flex-shrink-0" viewBox="0 0 64 64" fill="none">
+                            <circle cx="24" cy="20" r="6" stroke="#D4AF37" stroke-width="2"/>
+                            <circle cx="40" cy="20" r="6" stroke="#D4AF37" stroke-width="2"/>
+                            <circle cx="32" cy="44" r="6" stroke="#D4AF37" stroke-width="2"/>
+                            <path d="M24 26l8 12M40 26l-8 12" stroke="#D4AF37" stroke-width="2"/>
+                        </svg>
+                        <h3 class="text-3xl font-display font-bold">Принцип людей</h3>
+                    </div>
+                    <div class="bg-black/30 rounded-lg p-8 mb-6">
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            Деньги не существуют сами по себе. Они не решают, к кому прийти, а от кого уйти.
+                        </p>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            <span class="gold-gradient font-semibold">Деньги приходят от людей.</span> 
+                            И именно люди решают, заплатить деньги тебе или отдать их другому человеку.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-yellow-600 pl-6 py-4">
+                        <p class="text-2xl font-display font-semibold gold-gradient">
+                            «Деньги приходят от людей. Именно люди решают, кому платить, а кому нет»
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Принцип 4 -->
+            <div class="card mb-12 relative border-2" style="border-color: var(--gold);">
+                <div class="number">04</div>
+                <div class="relative z-10 pt-12">
+                    <div class="flex items-center gap-6 mb-8">
+                        <svg class="w-20 h-20 flex-shrink-0" viewBox="0 0 64 64" fill="none">
+                            <rect x="12" y="20" width="40" height="28" rx="4" stroke="#D4AF37" stroke-width="2"/>
+                            <circle cx="32" cy="34" r="6" stroke="#D4AF37" stroke-width="2"/>
+                            <path d="M20 12h24" stroke="#D4AF37" stroke-width="2"/>
+                        </svg>
+                        <h3 class="text-3xl font-display font-bold">⚡ КЛЮЧЕВОЙ ПРИНЦИП</h3>
+                    </div>
+                    <div class="bg-black/30 rounded-lg p-8 mb-6">
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            Чтобы люди заплатили, мы стараемся показаться <span class="text-white font-semibold">хорошими</span>. 
+                            Стараемся понравиться человеку.
+                        </p>
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            Показываешь, какой ты крутой мастер, какой классный эксперт. Кейсы, дипломы.
+                        </p>
+                        <p class="text-xl text-gray-300 leading-relaxed mb-4">
+                            Стараешься сразу сделать человеку хорошо, чтобы он понял, что с тобой ему будет прекрасно.
+                        </p>
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            <span class="text-red-400 font-semibold">Но люди не будут платить за то, что ты им понравился.</span> 
+                            Максимум — лайк в инсте поставят. Но отдавать деньги не станут.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-yellow-600 pl-6 py-4 bg-yellow-900/10">
+                        <p class="text-2xl font-display font-semibold gold-gradient">
+                            «Люди платят НЕ за то, какой ты. Они платят за то, что ХОТЯТ ПОЛУЧИТЬ»
+                        </p>
+                        <p class="text-gray-400 mt-4">⚡ Это один из ключевых принципов. Если осознаешь только его — уже сильно продвинешься.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Принципы 5-9 кратко -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-5xl font-display gold-gradient font-bold">05</span>
+                        <h3 class="text-2xl font-semibold">Принцип зеркала</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Отношения с деньгами напрямую отражают отношения с людьми, миром и собой.</p>
+                    <p class="text-lg font-semibold" style="color: var(--gold);">«Деньги поддерживают текущее состояние»</p>
+                </div>
+                
+                <div class="card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-5xl font-display gold-gradient font-bold">06</span>
+                        <h3 class="text-2xl font-semibold">Принцип долженствования</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Деньги имеют зеркальное свойство. Работают в обе стороны.</p>
+                    <p class="text-lg font-semibold" style="color: var(--gold);">«Считаешь, что тебе должны — сам будешь должен»</p>
+                </div>
+                
+                <div class="card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-5xl font-display gold-gradient font-bold">07</span>
+                        <h3 class="text-2xl font-semibold">Принцип уверенности</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Отношения с деньгами = как ты себя чувствуешь среди людей.</p>
+                    <p class="text-lg font-semibold" style="color: var(--gold);">«Стесняешься людей — стесняешься предлагать»</p>
+                </div>
+                
+                <div class="card">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-5xl font-display gold-gradient font-bold">08</span>
+                        <h3 class="text-2xl font-semibold">Принцип намерения</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Мозг создаёт знакомые проблемы, если не видит целей за ними.</p>
+                    <p class="text-lg font-semibold" style="color: var(--gold);">«Деньги приходят под конкретное намерение»</p>
+                </div>
+                
+                <div class="card md:col-span-2">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-5xl font-display gold-gradient font-bold">09</span>
+                        <h3 class="text-2xl font-semibold">Принцип времени</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Время и внимание — главные ресурсы. Деньги — эквивалент экономии времени.</p>
+                    <p class="text-lg font-semibold" style="color: var(--gold);">«Хочешь порядка в деньгах — начни управлять временем»</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-20">
+                <button class="btn-gold">Применить 9 Принципов →</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ИНФОГРАФИКА: Старый VS Новый КОД -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">
+                    Старый код <span class="text-red-400">VS</span> <span class="gold-gradient">Новый код</span>
+                </h2>
+                <p class="text-xl text-gray-400">Сравнение программ мышления</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-1 bg-gray-800 rounded-xl overflow-hidden">
+                <!-- Заголовки -->
+                <div class="bg-red-900/30 p-8 text-center">
+                    <h3 class="text-3xl font-display font-bold text-red-400">❌ СТАРЫЙ КОД</h3>
+                    <p class="text-gray-400 mt-2">Программа дефицита</p>
+                </div>
+                <div class="bg-green-900/30 p-8 text-center">
+                    <h3 class="text-3xl font-display font-bold text-green-400">✓ НОВЫЙ КОД</h3>
+                    <p class="text-gray-400 mt-2">Программа изобилия</p>
+                </div>
+                
+                <!-- Пункт 1 -->
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-gray-300">«Мне не хватает денег»</p>
+                </div>
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-white">«У меня достаточно для следующего шага»</p>
+                </div>
+                
+                <!-- Пункт 2 -->
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-gray-300">Деньги = источник тревоги</p>
+                </div>
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-white">Деньги = инструмент для целей</p>
+                </div>
+                
+                <!-- Пункт 3 -->
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-gray-300">«Я не заслуживаю больше»</p>
+                </div>
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-white">«Я учусь и развиваюсь»</p>
+                </div>
+                
+                <!-- Пункт 4 -->
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-gray-300">Деньги приходят — сразу уходят</p>
+                </div>
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-white">Осознанные траты, рост накоплений</p>
+                </div>
+                
+                <!-- Пункт 5 -->
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-gray-300">Самосаботаж при росте</p>
+                </div>
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-white">Готовность принимать больше</p>
+                </div>
+                
+                <!-- Пункт 6 -->
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-gray-300">Чувство вины за деньги</p>
+                </div>
+                <div class="bg-zinc-900 p-8">
+                    <p class="text-xl text-white">Благодарность и спокойствие</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-2xl font-light text-gray-300">Какой код работает у тебя прямо сейчас?</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- TIMELINE ТРАНСФОРМАЦИИ -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">
+                    Твоя <span class="gold-gradient">трансформация</span>
+                </h2>
+                <p class="text-xl text-gray-400">Путь от осознания к новой реальности</p>
+            </div>
+            
+            <div class="space-y-12">
+                <!-- День 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-sm font-semibold px-4 py-2 rounded-full" style="background: rgba(212, 175, 55, 0.2); color: var(--gold);">ДЕНЬ 1</span>
+                            <span class="text-gray-500">•</span>
+                            <span class="text-gray-400">90 минут</span>
+                        </div>
+                        <h3 class="text-3xl font-display font-bold mb-4">ОСОЗНАНИЕ</h3>
+                        <p class="text-xl text-gray-300 mb-6">Увидишь свой денежный код. Выявишь механизмы самосаботажа. Поймёшь, что именно блокирует твой доход.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Чек на миллион</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">13 зеркал</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Меч в камне</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-sm font-semibold px-4 py-2 rounded-full" style="background: rgba(212, 175, 55, 0.2); color: var(--gold);">ДЕНЬ 5</span>
+                            <span class="text-gray-500">•</span>
+                            <span class="text-gray-400">100 минут</span>
+                        </div>
+                        <h3 class="text-3xl font-display font-bold mb-4">ДЕКОНСТРУКЦИЯ</h3>
+                        <p class="text-xl text-gray-300 mb-6">Научишься менять любое ограничивающее убеждение. Получишь инструмент работы с мыслями, который будешь использовать всю жизнь.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">5 вопросов</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Ловушки языка</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Сканер саботажа</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 8 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-sm font-semibold px-4 py-2 rounded-full" style="background: rgba(212, 175, 55, 0.2); color: var(--gold);">ДЕНЬ 8</span>
+                            <span class="text-gray-500">•</span>
+                            <span class="text-gray-400">75 минут</span>
+                        </div>
+                        <h3 class="text-3xl font-display font-bold mb-4">РАСШИРЕНИЕ</h3>
+                        <p class="text-xl text-gray-300 mb-6">Выйдешь за рамки туннельного зрения. Увидишь десятки источников дохода вместо одного. Осознаешь богатство своих ресурсов.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">30 способов</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Инвентаризация активов</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Карта каналов</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 11 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="card">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-sm font-semibold px-4 py-2 rounded-full" style="background: rgba(212, 175, 55, 0.2); color: var(--gold);">ДЕНЬ 11</span>
+                            <span class="text-gray-500">•</span>
+                            <span class="text-gray-400">90 минут</span>
+                        </div>
+                        <h3 class="text-3xl font-display font-bold mb-4">ИНТЕГРАЦИЯ</h3>
+                        <p class="text-xl text-gray-300 mb-6">Научишься свободно получать и осознанно отдавать. Поймёшь, кем нужно быть для дохода × 3. Уберёшь чувство вины за деньги.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Тест на границы</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Идентичность</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Благодарность</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 14 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot" style="background: linear-gradient(135deg, var(--gold), var(--gold-light));"></div>
+                    <div class="card border-2" style="border-color: var(--gold);">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-sm font-semibold px-4 py-2 rounded-full" style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--dark);">ДЕНЬ 14</span>
+                            <span class="text-gray-500">•</span>
+                            <span class="text-gray-400">90 минут</span>
+                        </div>
+                        <h3 class="text-3xl font-display font-bold mb-4">ЗАКРЕПЛЕНИЕ</h3>
+                        <p class="text-xl text-gray-300 mb-6">Создашь образ нового себя. Сформулируешь 3 ключевых убеждения. Получишь чёткий план на 30-60-90 дней. Станешь другим.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">Финансовый аватар</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">3 убеждения</span>
+                            <span class="px-3 py-1 bg-yellow-900/20 rounded text-sm border border-yellow-700/30">План действий</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ПРОДОЛЖЕНИЕ В СЛЕДУЮЩЕЙ ЧАСТИ... -->
+    
+    <script>
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        
+        // CTA buttons
+        document.querySelectorAll('.btn-gold, .btn-outline').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Здесь будет форма регистрации');
+            });
+        });
+    </script>
+</body>
+</html>
+
+    <!-- ЧТО ПОЛУЧИШЬ -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">
+                    Что <span class="gold-gradient">получишь</span> в тренинге
+                </h2>
+                <p class="text-2xl text-gray-400">Полный комплект для трансформации</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Блок 1 -->
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <rect x="16" y="12" width="32" height="40" rx="2" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="24" y1="20" x2="40" y2="20" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="24" y1="28" x2="40" y2="28" stroke="#D4AF37" stroke-width="2"/>
+                        <line x1="24" y1="36" x2="40" y2="36" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">5 живых встреч</h3>
+                    <p class="text-gray-400 mb-4">По 1,5-2 часа. Zoom. С разборами и практиками в прямом эфире.</p>
+                    <p class="text-sm" style="color: var(--gold);">Ценность: 50,000₽</p>
+                </div>
+                
+                <!-- Блок 2 -->
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <path d="M12 16h40v32H12z" stroke="#D4AF37" stroke-width="2"/>
+                        <circle cx="32" cy="32" r="8" stroke="#D4AF37" stroke-width="2"/>
+                        <path d="M32 8v8M32 48v8M8 32h8M48 32h8" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">Рабочая тетрадь</h3>
+                    <p class="text-gray-400 mb-4">225+ полей для проработки. Все практики структурированы. PDF.</p>
+                    <p class="text-sm" style="color: var(--gold);">Ценность: 5,000₽</p>
+                </div>
+                
+                <!-- Блок 3 -->
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="20" stroke="#D4AF37" stroke-width="2"/>
+                        <path d="M20 32l8 8 16-16" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">Telegram-канал</h3>
+                    <p class="text-gray-400 mb-4">14 дней поддержки. Ежедневные практики. Шеринг группы.</p>
+                    <p class="text-sm" style="color: var(--gold);">Ценность: 15,000₽</p>
+                </div>
+                
+                <!-- Блок 4 -->
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <rect x="16" y="16" width="32" height="32" rx="4" stroke="#D4AF37" stroke-width="2"/>
+                        <path d="M28 32l4 4 8-8" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">Записи эфиров</h3>
+                    <p class="text-gray-400 mb-4">Доступ 30 дней. Пересматривай в любое время.</p>
+                    <p class="text-sm" style="color: var(--gold);">Ценность: 20,000₽</p>
+                </div>
+                
+                <!-- Блок 5 -->
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <path d="M32 12l-4 8h-8l6 6-2 8 8-4 8 4-2-8 6-6h-8z" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">Банк техник</h3>
+                    <p class="text-gray-400 mb-4">От 17 топовых экспертов мира. Применяй всю жизнь.</p>
+                    <p class="text-sm" style="color: var(--gold);">Ценность: 10,000₽</p>
+                </div>
+                
+                <!-- Блок 6 -->
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <path d="M16 32h12v16H16zM36 24h12v24H36z" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">План 30-60-90</h3>
+                    <p class="text-gray-400 mb-4">Пошаговый план на 3 месяца после тренинга.</p>
+                    <p class="text-sm" style="color: var(--gold);">Ценность: 7,000₽</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <div class="bg-gradient-to-r from-zinc-900 to-black border-2 rounded-xl p-8 max-w-2xl mx-auto" style="border-color: var(--gold);">
+                    <p class="text-gray-400 text-lg mb-2">Общая ценность пакета:</p>
+                    <p class="text-4xl font-display font-bold gold-gradient mb-2">107,000 ₽</p>
+                    <p class="text-gray-500">Твоя цена сегодня — в 10 раз меньше ↓</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ДЛЯ КОГО -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Для кого -->
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-12">
+                        Этот тренинг <span class="gold-gradient">для тебя</span>, если:
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M10 16l4 4 8-8" stroke="#D4AF37" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Зарабатываешь, но денег всё равно не хватает</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M10 16l4 4 8-8" stroke="#D4AF37" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Денежные качели: то есть, то нет</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M10 16l4 4 8-8" stroke="#D4AF37" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Чувствуешь тревогу при мыслях о деньгах</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M10 16l4 4 8-8" stroke="#D4AF37" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Саботируешь возможности роста</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M10 16l4 4 8-8" stroke="#D4AF37" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Деньги приходят и сразу уходят</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#D4AF37" stroke-width="2"/>
+                                <path d="M10 16l4 4 8-8" stroke="#D4AF37" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Чувствуешь вину за получение денег</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Не для кого -->
+                <div>
+                    <h2 class="font-display text-4xl md:text-5xl font-bold mb-12">
+                        Тренинг <span class="text-red-400">НЕ для тебя</span>, если:
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#EF4444" stroke-width="2"/>
+                                <path d="M10 10l12 12M22 10L10 22" stroke="#EF4444" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Ищешь быстрые схемы заработка</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#EF4444" stroke-width="2"/>
+                                <path d="M10 10l12 12M22 10L10 22" stroke="#EF4444" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Хочешь «волшебную таблетку» без работы над собой</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#EF4444" stroke-width="2"/>
+                                <path d="M10 10l12 12M22 10L10 22" stroke="#EF4444" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Не готов делать практики</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#EF4444" stroke-width="2"/>
+                                <path d="M10 10l12 12M22 10L10 22" stroke="#EF4444" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Ждёшь, что кто-то решит за тебя</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 flex-shrink-0 mt-1" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="15" stroke="#EF4444" stroke-width="2"/>
+                                <path d="M10 10l12 12M22 10L10 22" stroke="#EF4444" stroke-width="2"/>
+                            </svg>
+                            <p class="text-lg text-gray-300">Всё устраивает, менять ничего не хочешь</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ОТЗЫВЫ (СОЦИАЛЬНОЕ ДОКАЗАТЕЛЬСТВО) -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">
+                    Они <span class="gold-gradient">переписали</span> свой код
+                </h2>
+                <p class="text-xl text-gray-400">Реальные истории участников</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Отзыв 1 -->
+                <div class="card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-800 flex items-center justify-center text-2xl font-bold">А</div>
+                        <div>
+                            <p class="font-semibold text-lg">Анна</p>
+                            <p class="text-gray-500 text-sm">Психолог, 34 года</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">«Я наконец поняла, откуда берутся мои денежные качели. Оказывается, я сама включала саботаж каждый раз, когда деньги начинали приходить. После тренинга всё изменилось.»</p>
+                    <div class="flex gap-1">
+                        <span class="text-yellow-500">★★★★★</span>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 2 -->
+                <div class="card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-800 flex items-center justify-center text-2xl font-bold">М</div>
+                        <div>
+                            <p class="font-semibold text-lg">Михаил</p>
+                            <p class="text-gray-500 text-sm">Предприниматель, 42 года</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">«Работал на износ, а денег всё равно не хватало. Оказалось, проблема была не в бизнесе, а в моих установках. За 2 недели доход вырос на 40%. Магия? Нет, просто убрал блоки.»</p>
+                    <div class="flex gap-1">
+                        <span class="text-yellow-500">★★★★★</span>
+                    </div>
+                </div>
+                
+                <!-- Отзыв 3 -->
+                <div class="card">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-600 to-yellow-800 flex items-center justify-center text-2xl font-bold">Е</div>
+                        <div>
+                            <p class="font-semibold text-lg">Елена</p>
+                            <p class="text-gray-500 text-sm">Дизайнер, 28 лет</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-4">«Главный инсайт: я постоянно занижала цены, потому что не чувствовала, что достойна большего. После практик это ушло. Подняла цены в 2 раза — и клиенты платят!»</p>
+                    <div class="flex gap-1">
+                        <span class="text-yellow-500">★★★★★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ГАРАНТИИ -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">
+                    Наши <span class="gold-gradient">гарантии</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="24" stroke="#D4AF37" stroke-width="2"/>
+                        <path d="M32 16l-6 12h12z" fill="#D4AF37"/>
+                        <circle cx="32" cy="38" r="2" fill="#D4AF37"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">100% контент</h3>
+                    <p class="text-gray-300">Только практики и инструменты. Никакой воды. Каждая встреча — конкретный результат.</p>
+                </div>
+                
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <path d="M32 12l-4 8-8 2 6 6-2 10 8-4 8 4-2-10 6-6-8-2z" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">Проверенные техники</h3>
+                    <p class="text-gray-300">От 17 топовых мировых экспертов. Годы исследований и практики конденсированы в 14 дней.</p>
+                </div>
+                
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <rect x="16" y="20" width="32" height="28" rx="2" stroke="#D4AF37" stroke-width="2"/>
+                        <path d="M24 32h16M24 40h16" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">Записи навсегда</h3>
+                    <p class="text-gray-300">Доступ к записям 30 дней. Пересматривай сколько нужно. Проходи в своём темпе.</p>
+                </div>
+                
+                <div class="card text-center">
+                    <svg class="w-24 h-24 mx-auto mb-6" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="20" stroke="#D4AF37" stroke-width="2"/>
+                        <path d="M24 32l6 6 10-10" stroke="#D4AF37" stroke-width="2"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-4">Поддержка группы</h3>
+                    <p class="text-gray-300">14 дней в закрытом Telegram. Шеринг, поддержка, ежедневные практики. Ты не один.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ЦЕНА И ОФФЕР -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-5xl md:text-7xl font-bold mb-6">
+                    Инвестиция в <span class="gold-gradient">себя</span>
+                </h2>
+                <p class="text-2xl text-gray-400">Стоимость одной консультации психолога = 5,000₽</p>
+                <p class="text-xl text-gray-500 mt-2">Тебе понадобилось бы 20+ сессий, чтобы проработать денежный код</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Обычная цена -->
+                <div class="card text-center opacity-60">
+                    <div class="mb-4">
+                        <p class="text-gray-500 text-sm uppercase tracking-widest mb-2">Обычная цена</p>
+                        <p class="text-4xl font-display font-bold line-through text-gray-600">15,000 ₽</p>
+                    </div>
+                    <ul class="text-left text-gray-500 space-y-2 mb-6">
+                        <li>✓ 5 живых встреч</li>
+                        <li>✓ Рабочая тетрадь</li>
+                        <li>✓ Telegram-канал</li>
+                        <li>✓ Записи эфиров</li>
+                        <li>✓ Банк техник</li>
+                    </ul>
+                    <p class="text-gray-600">Цена с 26 января</p>
+                </div>
+                
+                <!-- Твоя цена -->
+                <div class="card text-center border-2 relative" style="border-color: var(--gold);">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-2 rounded-full text-sm font-semibold" style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--dark);">
+                        СКИДКА 33%
+                    </div>
+                    <div class="mb-6 mt-4">
+                        <p class="text-sm uppercase tracking-widest mb-2" style="color: var(--gold);">Твоя цена до 25 января</p>
+                        <p class="text-6xl font-display font-bold gold-gradient">9,990 ₽</p>
+                    </div>
+                    <ul class="text-left space-y-3 mb-8">
+                        <li class="flex items-start gap-2">
+                            <span style="color: var(--gold);">✓</span>
+                            <span>5 живых встреч</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: var(--gold);">✓</span>
+                            <span>Рабочая тетрадь (225+ полей)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: var(--gold);">✓</span>
+                            <span>Telegram-канал (14 дней)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: var(--gold);">✓</span>
+                            <span>Записи эфиров (30 дней)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: var(--gold);">✓</span>
+                            <span>Банк техник (17 экспертов)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: var(--gold);">✓</span>
+                            <span>План 30-60-90</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span style="color: var(--gold);">🎁</span>
+                            <span class="font-semibold">БОНУС: Чек-листы практик</span>
+                        </li>
+                    </ul>
+                    <button class="btn-gold w-full mb-4">Забронировать место</button>
+                    <p class="text-sm text-gray-500">⚡ Осталось 8 мест из 30</p>
+                    <p class="text-sm text-red-400 mt-2">Скидка действует 3 дня</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-gray-400 text-lg">Рассрочка доступна • Оплата картой</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- FAQ -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-20">
+                <h2 class="font-display text-5xl md:text-6xl font-bold mb-6">
+                    Частые <span class="gold-gradient">вопросы</span>
+                </h2>
+            </div>
+            
+            <div class="space-y-6">
+                <details class="card cursor-pointer group">
+                    <summary class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                        <span>Это для меня, если я новичок?</span>
+                        <span class="text-3xl group-open:rotate-45 transition-transform" style="color: var(--gold);">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-6 pt-6 border-t border-gray-800 leading-relaxed">Да! Тренинг про психологию, а не про финансовые инструменты. Не нужно быть экспертом. Нужно просто быть готовым честно посмотреть на свои установки и поработать с ними.</p>
+                </details>
+                
+                <details class="card cursor-pointer group">
+                    <summary class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                        <span>Сколько времени нужно уделять?</span>
+                        <span class="text-3xl group-open:rotate-45 transition-transform" style="color: var(--gold);">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-6 pt-6 border-t border-gray-800 leading-relaxed">5 живых встреч по 1,5-2 часа (дни 1, 5, 8, 11, 14) + 15-30 минут в день на домашние практики. Это инвестиция времени, которая окупится сторицей.</p>
+                </details>
+                
+                <details class="card cursor-pointer group">
+                    <summary class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                        <span>Когда старт? Какой график?</span>
+                        <span class="text-3xl group-open:rotate-45 transition-transform" style="color: var(--gold);">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-6 pt-6 border-t border-gray-800 leading-relaxed">Старт 1 февраля 2026. Встречи в дни 1, 5, 8, 11, 14. Точное время будет объявлено в закрытом чате. Все эфиры записываются — если пропустишь, сможешь посмотреть в удобное время.</p>
+                </details>
+                
+                <details class="card cursor-pointer group">
+                    <summary class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                        <span>Что если я пропущу эфир?</span>
+                        <span class="text-3xl group-open:rotate-45 transition-transform" style="color: var(--gold);">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-6 pt-6 border-t border-gray-800 leading-relaxed">Все записи сохраняются и доступны 30 дней. Можешь пересматривать сколько нужно и проходить практики в своём темпе. Но живое участие даёт максимальный эффект.</p>
+                </details>
+                
+                <details class="card cursor-pointer group">
+                    <summary class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                        <span>Это не очередной «позитивный настрой»?</span>
+                        <span class="text-3xl group-open:rotate-45 transition-transform" style="color: var(--gold);">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-6 pt-6 border-t border-gray-800 leading-relaxed">Нет. Мы работаем с реальными механизмами мозга и подсознательными программами. Техники основаны на когнитивно-поведенческой терапии, нейропсихологии и работах топовых экспертов мира. Это не мотивация — это инструменты.</p>
+                </details>
+                
+                <details class="card cursor-pointer group">
+                    <summary class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                        <span>Есть гарантии результата?</span>
+                        <span class="text-3xl group-open:rotate-45 transition-transform" style="color: var(--gold);">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-6 pt-6 border-t border-gray-800 leading-relaxed">Результат зависит от твоей вовлечённости. Если пройдёшь все практики — изменения неизбежны. Это психология, она работает. Мы даём инструменты — ты их применяешь. Без твоих действий волшебства не случится.</p>
+                </details>
+                
+                <details class="card cursor-pointer group">
+                    <summary class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                        <span>Подойдёт ли мне, если я не в России?</span>
+                        <span class="text-3xl group-open:rotate-45 transition-transform" style="color: var(--gold);">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-6 pt-6 border-t border-gray-800 leading-relaxed">Да! Тренинг онлайн, участвовать можно из любой точки мира. Денежный код не зависит от страны — это универсальные паттерны мышления.</p>
+                </details>
+                
+                <details class="card cursor-pointer group">
+                    <summary class="text-xl font-semibold cursor-pointer list-none flex justify-between items-center">
+                        <span>Можно в рассрочку?</span>
+                        <span class="text-3xl group-open:rotate-45 transition-transform" style="color: var(--gold);">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-6 pt-6 border-t border-gray-800 leading-relaxed">Да, доступна рассрочка на 2-3 месяца. Детали на странице оплаты.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider max-w-6xl mx-auto"></div>
+
+    <!-- ФИНАЛЬНЫЙ CTA -->
+    <section class="py-32 relative">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="font-display text-5xl md:text-7xl font-bold mb-8">
+                За 14 дней<br/>ты можешь стать <span class="gold-gradient">другим</span>
+            </h2>
+            <p class="text-2xl text-gray-300 mb-4 font-light">
+                Или остаться в том же коде ещё на годы.
+            </p>
+            <p class="text-2xl text-gray-300 mb-12 font-light">
+                Выбор за тобой. <span class="gold-gradient font-semibold">Начни сегодня</span>.
+            </p>
+            
+            <div class="bg-gradient-to-br from-zinc-900 to-black border-2 rounded-2xl p-12 mb-8" style="border-color: var(--gold);">
+                <p class="text-6xl font-display font-bold gold-gradient mb-4">9,990 ₽</p>
+                <p class="text-gray-400 mb-2">вместо 15,000₽</p>
+                <p class="text-red-400 text-lg mb-8">Скидка действует до 25 января</p>
+                <button class="btn-gold text-xl py-5 px-16 mb-4">Переписать Код Сейчас →</button>
+                <p class="text-sm text-gray-500">⚡ Осталось 8 мест • Старт 1 февраля</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-4 text-sm text-gray-500">
+                <div>🔒 Безопасная оплата</div>
+                <div>💳 Рассрочка доступна</div>
+                <div>✉️ Доступ сразу после оплаты</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 border-t border-gray-800">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h3 class="text-2xl font-display font-bold gold-gradient mb-4">КОД ДЕНЕГ</h3>
+                    <p class="text-gray-400">14-дневный интенсив по трансформации финансового мышления</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Контакты</h4>
+                    <p class="text-gray-400 mb-2">Email: info@kod-deneg.ru</p>
+                    <p class="text-gray-400 mb-2">Telegram: @kod_deneg</p>
+                    <p class="text-gray-400">Instagram: @kod.deneg</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Документы</h4>
+                    <p class="text-gray-400 mb-2"><a href="#" class="hover:text-white transition">Договор оферты</a></p>
+                    <p class="text-gray-400 mb-2"><a href="#" class="hover:text-white transition">Политика конфиденциальности</a></p>
+                    <p class="text-gray-400"><a href="#" class="hover:text-white transition">Реквизиты</a></p>
+                </div>
+            </div>
+            <div class="text-center text-gray-600 text-sm pt-8 border-t border-gray-800">
+                <p>© 2026 КОД ДЕНЕГ • Архитектура Сознания</p>
+                <p class="mt-2">Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
