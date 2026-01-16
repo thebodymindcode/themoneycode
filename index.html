@@ -23,6 +23,10 @@
             box-sizing: border-box; 
         }
         
+        html {
+            overflow-x: hidden;
+        }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--dark);
@@ -236,6 +240,8 @@
             padding: 140px 40px;
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
+            overflow-x: hidden;
         }
         
         .section-title {
@@ -309,11 +315,35 @@
         
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .section { padding: 80px 24px; }
-            .stats-grid { gap: 40px; padding: 80px 24px; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .card-premium { padding: 40px 32px; }
+            .section { 
+                padding: 80px 20px !important; 
+                overflow-x: hidden;
+            }
+            .stats-grid { 
+                gap: 40px; 
+                padding: 80px 20px; 
+            }
+            .pricing-grid { 
+                grid-template-columns: 1fr; 
+                padding: 0 20px;
+            }
+            .card-premium { 
+                padding: 40px 24px !important; 
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            
+            /* Hero на мобильных */
+            .hero {
+                padding: 120px 20px 80px !important;
+            }
+            
+            /* Контейнеры тарифов */
+            div[style*="padding: 80px 60px"] {
+                padding: 60px 24px !important;
+            }
         }
+        
         /* Mobile responsive для секций */
         @media (max-width: 1024px) {
             .section h2 {
@@ -325,6 +355,13 @@
             /* Grid 3 колонки -> 1 колонка */
             div[style*="grid-template-columns: repeat(3, 1fr)"] {
                 grid-template-columns: 1fr !important;
+                gap: 0 !important;
+                background: transparent !important;
+            }
+            
+            div[style*="grid-template-columns: repeat(3, 1fr)"] > div {
+                border-bottom: 1px solid rgba(201, 169, 97, 0.1) !important;
+                padding: 40px 20px !important;
             }
             
             /* Grid 2 колонки принципов -> 1 колонка */
@@ -332,12 +369,48 @@
                 grid-template-columns: 1fr !important;
                 gap: 40px !important;
                 text-align: center;
+                padding: 0 20px !important;
             }
             
             div[style*="grid-template-columns: 160px 1fr"] > div:first-child {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            /* Трансформация: 2 колонки -> 1 колонка */
+            div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 1px"] {
+                grid-template-columns: 1fr !important;
+                gap: 0 !important;
+                background: transparent !important;
+            }
+            
+            div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 1px"] > div {
+                padding: 60px 24px !important;
+                margin-bottom: 40px;
+                border: 1px solid rgba(201, 169, 97, 0.15) !important;
+            }
+            
+            /* Все тексты на мобильных */
+            p, li, div {
+                max-width: 100%;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+            
+            /* Все grid контейнеры */
+            div[style*="display: grid"],
+            div[style*="display:grid"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+            
+            /* Все элементы с max-width */
+            div[style*="max-width"] {
+                max-width: calc(100vw - 40px) !important;
+                padding-left: 20px !important;
+                padding-right: 20px !important;
             }
         }
     </style>
@@ -914,6 +987,199 @@
 
     <div class="divider"></div>
 
+
+    <!-- ТРАНСФОРМАЦИЯ (ULTRA PREMIUM) -->
+    <section class="section">
+        <div style="text-align: center; margin-bottom: 100px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 96px); font-weight: 800; margin-bottom: 32px; line-height: 1;">
+                Что <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">изменится</span>
+            </h2>
+            <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 24px;"></div>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase;">14 дней трансформации</p>
+        </div>
+        
+        <!-- Основной контейнер -->
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(201, 169, 97, 0.15);">
+            <!-- БЫЛО (левая колонка) -->
+            <div style="padding: 80px 60px; background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(20, 20, 20, 0.95));">
+                <div style="margin-bottom: 60px;">
+                    <div style="display: inline-block; padding: 12px 32px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); margin-bottom: 24px;">
+                        <span style="font-size: 14px; font-weight: 700; letter-spacing: 2px; color: rgba(239, 68, 68, 0.8);">ТОЧКА А</span>
+                    </div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 16px;">Было</h3>
+                    <div style="width: 60px; height: 2px; background: rgba(239, 68, 68, 0.3);"></div>
+                </div>
+                
+                <!-- Пункты БЫЛО -->
+                <div style="display: flex; flex-direction: column; gap: 48px;">
+                    <!-- 1 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid rgba(239, 68, 68, 0.3); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" fill="none"/>
+                                <path d="M12 8v4M12 16v.5" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: rgba(255,255,255,0.9);">Тревога при мыслях о деньгах</h4>
+                            <p style="color: rgba(255,255,255,0.5); line-height: 1.7; font-size: 15px;">Страх смотреть на счета, откладывание финансовых решений, ком в животе от слова «деньги»</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid rgba(239, 68, 68, 0.3); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" fill="none"/>
+                                <path d="M8 8l8 8M16 8l-8 8" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: rgba(255,255,255,0.9);">Саботаж при росте дохода</h4>
+                            <p style="color: rgba(255,255,255,0.5); line-height: 1.7; font-size: 15px;">Срыв сделок, конфликты с клиентами, импульсивные траты, когда приходят большие суммы</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 3 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid rgba(239, 68, 68, 0.3); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <line x1="4" y1="12" x2="20" y2="12" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2"/>
+                                <path d="M12 4v8M8 8l4 4 4-4" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: rgba(255,255,255,0.9);">Невидимый потолок дохода</h4>
+                            <p style="color: rgba(255,255,255,0.5); line-height: 1.7; font-size: 15px;">«Дальше не могу», застревание на одной сумме месяцами, страх просить больше</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 4 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid rgba(239, 68, 68, 0.3); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7v10c0 5.5 4.5 10 10 10s10-4.5 10-10V7L12 2z" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" fill="none"/>
+                                <path d="M12 12l-3 3M12 12l3 3" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: rgba(255,255,255,0.9);">Деньги «утекают»</h4>
+                            <p style="color: rgba(255,255,255,0.5); line-height: 1.7; font-size: 15px;">Неспособность копить, импульсивные покупки, «куда делись деньги?», постоянный ноль</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 5 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid rgba(239, 68, 68, 0.3); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" fill="none"/>
+                                <path d="M9 15l3-3 3 3" stroke="rgba(239, 68, 68, 0.6)" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: rgba(255,255,255,0.9);">Чувство вины за желание денег</h4>
+                            <p style="color: rgba(255,255,255,0.5); line-height: 1.7; font-size: 15px;">«Деньги — это плохо», стыд за богатство, обесценивание своей работы, заниженные цены</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- СТАНЕТ (правая колонка) -->
+            <div style="padding: 80px 60px; background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(20, 20, 20, 0.95));">
+                <div style="margin-bottom: 60px;">
+                    <div style="display: inline-block; padding: 12px 32px; background: rgba(201, 169, 97, 0.15); border: 1px solid var(--gold); margin-bottom: 24px;">
+                        <span style="font-size: 14px; font-weight: 700; letter-spacing: 2px; color: var(--gold-light);">ТОЧКА Б</span>
+                    </div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px;">Станет</h3>
+                    <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light));"></div>
+                </div>
+                
+                <!-- Пункты СТАНЕТ -->
+                <div style="display: flex; flex-direction: column; gap: 48px;">
+                    <!-- 1 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#C9A961" stroke-width="2" fill="none"/>
+                                <path d="M9 12l2 2 4-4" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--gold-light);">Спокойствие и контроль</h4>
+                            <p style="color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 15px;">Нейтральное отношение к деньгам, готовность принимать решения, комфорт при обсуждении цен</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 2 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7v10c0 5.5 4.5 10 10 10s10-4.5 10-10V7L12 2z" stroke="#C9A961" stroke-width="2" fill="none"/>
+                                <path d="M9 12l2 2 4-4" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--gold-light);">Готовность принимать больше</h4>
+                            <p style="color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 15px;">Отсутствие саботажа, способность удерживать результат, спокойное отношение к росту дохода</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 3 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2v20M5 12l7-7 7 7" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--gold-light);">Новый финансовый потолок</h4>
+                            <p style="color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 15px;">Расширение зоны комфорта, готовность зарабатывать больше, понимание своей ценности</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 4 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="4" y="4" width="16" height="16" rx="2" stroke="#C9A961" stroke-width="2" fill="none"/>
+                                <path d="M9 12l2 2 4-4" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--gold-light);">Осознанные траты и накопления</h4>
+                            <p style="color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 15px;">Понимание куда уходят деньги, способность копить, рост накоплений, контроль бюджета</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 5 -->
+                    <div style="display: flex; gap: 24px; align-items: flex-start;">
+                        <div style="flex-shrink: 0; width: 48px; height: 48px; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="#C9A961" stroke-width="2" fill="none"/>
+                                <circle cx="12" cy="12" r="3" fill="#C9A961"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--gold-light);">Здоровое отношение к деньгам</h4>
+                            <p style="color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 15px;">Деньги как инструмент, отсутствие вины, спокойствие при получении и тратах, уверенность</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Подпись снизу -->
+        <div style="max-width: 800px; margin: 80px auto 0; text-align: center; padding: 40px; border: 1px solid rgba(201, 169, 97, 0.2); background: rgba(201, 169, 97, 0.02);">
+            <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 16px;">
+                Это не про <span style="color: var(--gold-light); font-weight: 600;">«стать миллионером за 2 недели»</span>
+            </p>
+            <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);">
+                Это про изменение внутреннего состояния, которое делает возможным устойчивый рост дохода
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
 
     <!-- ТАРИФЫ (ULTRA PREMIUM) -->
     <section class="section" id="pricing">
