@@ -96,15 +96,16 @@
         }
         
         .hero-tagline {
-            font-size: clamp(20px, 3vw, 32px);
+            font-size: clamp(22px, 3.5vw, 38px);
             font-weight: 300;
             text-align: center;
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto 60px;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             opacity: 0;
             animation: fadeIn 1s ease forwards 0.8s;
+            letter-spacing: -0.01em;
         }
         
         .hero-tagline strong {
@@ -316,9 +317,33 @@
     </style>
 </head>
 <body>
+    <!-- HEADER -->
+    <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201, 169, 97, 0.1);">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">КОД ДЕНЕГ</div>
+            <a href="https://t.me/TheBodyMindCode_support" target="_blank" style="text-decoration: none;">
+                <button style="padding: 14px 36px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--dark); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(201, 169, 97, 0.3);">
+                    💬 Задать вопрос
+                </button>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- HEADER -->
+    <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201, 169, 97, 0.1);">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">КОД ДЕНЕГ</div>
+            <a href="https://t.me/TheBodyMindCode_support" target="_blank" style="text-decoration: none;">
+                <button style="padding: 14px 36px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--dark); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(201, 169, 97, 0.3);">
+                    💬 Задать вопрос
+                </button>
+            </a>
+        </div>
+    </header>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" style="margin-top: 80px;">
         <div style="max-width: 1200px; padding: 40px; text-align: center; position: relative; z-index: 1;">
             <div class="brand-subtitle">✨ Архитектура сознания</div>
             <div class="hero-logo">
@@ -326,13 +351,14 @@
                 <span class="word-deneg">ДЕНЕГ</span>
             </div>
             <p class="hero-tagline">
-                Почему к одним людям деньги приходят <strong>легко и стабильно</strong>,<br/>
-                а другие годами качаются на качелях?
+                Почему к одним людям деньги приходят <strong style="color: var(--gold-light);">легко и стабильно</strong>, а другие годами качаются на качелях?
             </p>
-            <div style="opacity: 0; animation: fadeIn 1s ease forwards 1s;">
-                <button class="btn-primary">Переписать код →</button>
+            <div style="opacity: 0; animation: fadeIn 1s ease forwards 1s; margin-top: 60px;">
+                <a href="#pricing" style="text-decoration: none;">
+                    <button class="btn-primary">ПЕРЕПИСАТЬ КОД →</button>
+                </a>
             </div>
-            <div style="margin-top: 40px; font-size: 13px; color: rgba(255,255,255,0.5); opacity: 0; animation: fadeIn 1s ease forwards 1.2s;">
+            <div style="margin-top: 40px; font-size: 13px; color: rgba(255,255,255,0.5); opacity: 0; animation: fadeIn 1s ease forwards 1.2s; letter-spacing: 1px;">
                 Старт 22 января • Доступ навсегда
             </div>
         </div>
@@ -353,8 +379,8 @@
             <div class="stat-label">Уникальных практик</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">17</div>
-            <div class="stat-label">Топовых экспертов</div>
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Доступ навсегда</div>
         </div>
     </div>
 
@@ -564,7 +590,7 @@
 
 
     <!-- ТАРИФЫ -->
-    <section class="section">
+    <section class="section" id="pricing">
         <h2 class="section-title">
             Выбери <span class="gold-text">свой путь</span>
         </h2>
@@ -600,7 +626,7 @@
                         <span style="font-size: 15px; font-weight: 500;">✓ Доступ навсегда</span>
                     </div>
                     <div style="padding: 16px 0;">
-                        <span style="font-size: 15px; font-weight: 500;">✓ Банк техник от 17 экспертов</span>
+                        <span style="font-size: 15px; font-weight: 500;">✓ Банк техник и практик</span>
                     </div>
                 </div>
                 
@@ -707,8 +733,8 @@
                     </summary>
                     <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 16px;">
                         <p style="margin-bottom: 16px;">1. <strong style="color: #fff;">Уникальные практики</strong> — часть техник разработана Дарьей, их нет в открытом доступе</p>
-                        <p style="margin-bottom: 16px;">2. <strong style="color: #fff;">Работа с подсознанием</strong> — конкретные техники изменения</p>
-                        <p style="margin-bottom: 16px;">3. <strong style="color: #fff;">17 топовых экспертов</strong> — T. Harv Eker, Brad Klontz, Tony Robbins, Morgan Housel и др.</p>
+                        <p style="margin-bottom: 16px;">2. <strong style="color: #fff;">Работа с подсознанием</strong> — конкретные техники изменения установок</p>
+                        <p style="margin-bottom: 16px;">3. <strong style="color: #fff;">Научная база</strong> — методы основаны на психологии денег и когнитивной терапии</p>
                         <p>4. <strong style="color: #fff;">Доступ навсегда</strong> — материалы остаются с тобой</p>
                     </div>
                 </details>
@@ -827,35 +853,34 @@
     </section>
 
     <!-- FOOTER -->
-    <footer style="margin-top: 140px; padding: 80px 40px 60px; border-top: 1px solid rgba(255,255,255,0.08);">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; margin-bottom: 60px;">
-                <div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px;">КОД ДЕНЕГ</h3>
-                    <p style="color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 16px;">14-дневный интенсив по трансформации финансового мышления</p>
-                    <p style="color: rgba(255,255,255,0.3); font-size: 14px;">✨ Архитектура сознания</p>
+    <footer style="margin-top: 140px; padding: 100px 40px 80px; border-top: 1px solid rgba(255,255,255,0.06);">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div style="margin-bottom: 60px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px; letter-spacing: -0.02em;">КОД ДЕНЕГ</h3>
+                <p style="color: rgba(255,255,255,0.4); line-height: 1.8; font-size: 16px; margin-bottom: 16px;">14-дневный интенсив по трансформации финансового мышления</p>
+                <p style="color: rgba(255,255,255,0.25); font-size: 13px; letter-spacing: 2px; text-transform: uppercase;">✨ Архитектура сознания</p>
+            </div>
+            
+            <div style="margin-bottom: 80px; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <div style="margin-bottom: 32px;">
+                    <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-bottom: 12px;">Telegram:</p>
+                    <a href="https://t.me/TheBodyMindCode_support" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 18px; font-weight: 500; transition: color 0.3s;">@TheBodyMindCode_support</a>
                 </div>
+                
                 <div>
-                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 24px; letter-spacing: 1px;">КОНТАКТЫ</h4>
-                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 16px; font-size: 15px;">Email: <a href="mailto:info@thebodymindcode.ru" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;">info@thebodymindcode.ru</a></p>
-                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 16px; font-size: 15px;">Telegram: <a href="https://t.me/TheBodyMindCode_support" style="color: rgba(255,255,255,0.7); text-decoration: none;">@TheBodyMindCode_support</a></p>
-                    <p style="color: rgba(255,255,255,0.5); font-size: 15px;">Instagram: <a href="https://instagram.com/thebodymindcode" style="color: rgba(255,255,255,0.7); text-decoration: none;">@thebodymindcode</a></p>
-                </div>
-                <div>
-                    <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 24px; letter-spacing: 1px;">ДОКУМЕНТЫ</h4>
-                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 16px; font-size: 15px;"><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Договор оферты</a></p>
-                    <p style="color: rgba(255,255,255,0.5); margin-bottom: 16px; font-size: 15px;"><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Политика конфиденциальности</a></p>
-                    <p style="color: rgba(255,255,255,0.5); font-size: 15px;"><a href="#" style="color: rgba(255,255,255,0.7); text-decoration: none;">Реквизиты</a></p>
+                    <p style="color: rgba(255,255,255,0.4); font-size: 15px; margin-bottom: 12px;">Instagram:</p>
+                    <a href="https://instagram.com/thebodymindcode" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 18px; font-weight: 500; transition: color 0.3s;">@thebodymindcode</a>
                 </div>
             </div>
-            <div style="text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05);">
-                <p style="color: rgba(255,255,255,0.3); font-size: 14px; margin-bottom: 12px;">© 2026. Все права защищены.</p>
-                <p style="color: rgba(255,255,255,0.2); font-size: 13px;">ИП Ростовцева Дарья Валерьевна • ИНН: 241103415641</p>
+            
+            <div>
+                <p style="color: rgba(255,255,255,0.25); font-size: 13px; margin-bottom: 12px;">© 2026. Все права защищены.</p>
+                <p style="color: rgba(255,255,255,0.18); font-size: 12px;">ИП Ростовцева Дарья Валерьевна · ИНН: 241103415641</p>
             </div>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -879,11 +904,3 @@
         });
         
         // CTA buttons
-        document.querySelectorAll('.btn-primary').forEach(btn => {
-            btn.addEventListener('click', () => {
-                alert('Здесь будет форма регистрации');
-            });
-        });
-    </script>
-</body>
-</html>
