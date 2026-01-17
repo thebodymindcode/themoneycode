@@ -313,6 +313,200 @@
             margin: 24px 0;
         }
         
+        /* PRICING CARDS */
+        .pricing-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            padding: 60px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.basic {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(20, 20, 20, 0.9));
+            border: 1px solid rgba(201, 169, 97, 0.2);
+        }
+        
+        .pricing-card.vip {
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(20, 20, 20, 0.9));
+            border: 2px solid var(--gold);
+        }
+        
+        .pricing-card .card-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 32px;
+            border: 2px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pricing-card.vip .card-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            margin-top: 24px;
+        }
+        
+        .pricing-card .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .pricing-card.vip .card-title {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .pricing-card .card-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 32px;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .pricing-card.vip .card-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .pricing-card .card-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        
+        .pricing-card .price-line {
+            width: 50px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 40px;
+        }
+        
+        .pricing-card .feature-item {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .pricing-card .feature-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .pricing-card .feature-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .pricing-card .feature-header svg {
+            flex-shrink: 0;
+        }
+        
+        .pricing-card .feature-header h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .pricing-card.vip .feature-header h4 {
+            color: var(--gold-light);
+        }
+        
+        .pricing-card .feature-desc {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            line-height: 1.7;
+            padding-left: 38px;
+        }
+        
+        .pricing-card.vip .feature-desc {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .pricing-card .feature-list {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            line-height: 1.9;
+            padding-left: 38px;
+            list-style: none;
+            margin: 0;
+        }
+        
+        .pricing-card .vip-badge-box {
+            padding: 20px;
+            background: rgba(201, 169, 97, 0.1);
+            margin-bottom: 32px;
+            border-left: 3px solid var(--gold);
+        }
+        
+        .pricing-card .vip-badge-box span {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+        }
+        
+        .pricing-card .card-btn {
+            width: 100%;
+            margin-top: 40px;
+        }
+        
+        .pricing-card .card-footer {
+            margin-top: 24px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        
+        .pricing-card .vip-tag {
+            position: absolute;
+            top: -1px;
+            right: 32px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--dark);
+        }
+        
+        .pricing-card .watermark {
+            position: absolute;
+            top: 30px;
+            right: -20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 140px;
+            font-weight: 800;
+            color: rgba(201, 169, 97, 0.02);
+            line-height: 1;
+            transform: rotate(-10deg);
+            pointer-events: none;
+        }
+        
+        .pricing-card.vip .watermark {
+            color: rgba(201, 169, 97, 0.04);
+        }
+        
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .section { 
@@ -338,47 +532,100 @@
                 padding: 120px 20px 80px !important;
             }
             
-            /* Контейнеры тарифов */
-            div[style*="padding: 80px 60px"] {
-                padding: 40px 20px !important;
+            /* PRICING MOBILE - ПРЕМИУМ */
+            .pricing-section {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+                padding: 0 !important;
             }
             
-            /* Заголовки тарифов на мобильных */
-            div[style*="padding: 80px 60px"] h3 {
-                font-size: 32px !important;
+            .pricing-card {
+                padding: 48px 28px !important;
+                margin: 0 !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
             }
             
-            /* Цены на мобильных */
-            div[style*="font-size: 72px"] {
-                font-size: 56px !important;
+            .pricing-card .card-icon {
+                width: 64px !important;
+                height: 64px !important;
+                margin-bottom: 28px !important;
             }
             
-            /* Иконки в тарифах */
-            div[style*="padding: 80px 60px"] svg[width="40"],
-            div[style*="padding: 80px 60px"] svg[width="48"] {
+            .pricing-card.vip .card-icon {
+                margin-top: 20px !important;
+            }
+            
+            .pricing-card .card-icon svg {
                 width: 32px !important;
                 height: 32px !important;
             }
             
-            /* Блоки описаний в тарифах */
-            div[style*="padding: 80px 60px"] > div > div[style*="margin-bottom: 40px"] {
+            .pricing-card .card-title {
+                font-size: 32px !important;
+            }
+            
+            .pricing-card .card-subtitle {
+                font-size: 14px !important;
+                margin-bottom: 28px !important;
+            }
+            
+            .pricing-card .card-price {
+                font-size: 48px !important;
+            }
+            
+            .pricing-card .price-line {
                 margin-bottom: 32px !important;
-                padding-bottom: 32px !important;
             }
             
-            /* Заголовки блоков внутри тарифов */
-            div[style*="padding: 80px 60px"] h4 {
-                font-size: 16px !important;
+            .pricing-card .feature-item {
+                margin-bottom: 24px !important;
+                padding-bottom: 24px !important;
             }
             
-            /* Описания внутри тарифов */
-            div[style*="padding: 80px 60px"] p {
-                font-size: 14px !important;
+            .pricing-card .feature-header {
+                gap: 12px !important;
             }
             
-            /* Списки в тарифах */
-            div[style*="padding: 80px 60px"] ul li {
-                font-size: 14px !important;
+            .pricing-card .feature-header h4 {
+                font-size: 15px !important;
+            }
+            
+            .pricing-card .feature-header svg {
+                width: 22px !important;
+                height: 22px !important;
+            }
+            
+            .pricing-card .feature-desc,
+            .pricing-card .feature-list {
+                padding-left: 34px !important;
+                font-size: 13px !important;
+            }
+            
+            .pricing-card .vip-badge-box {
+                padding: 16px !important;
+                margin-bottom: 28px !important;
+            }
+            
+            .pricing-card .vip-badge-box span {
+                font-size: 13px !important;
+            }
+            
+            .pricing-card .card-btn {
+                margin-top: 32px !important;
+                padding: 18px 32px !important;
+                font-size: 13px !important;
+            }
+            
+            .pricing-card .vip-tag {
+                right: 20px !important;
+                padding: 8px 18px !important;
+                font-size: 10px !important;
+            }
+            
+            .pricing-card .watermark {
+                font-size: 100px !important;
+                top: 20px !important;
             }
             
             /* Секция оплаты на мобильных */
@@ -513,22 +760,9 @@
     <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201, 169, 97, 0.1);">
         <div style="max-width: 1400px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
             <div style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">КОД ДЕНЕГ</div>
-            <a href="https://t.me/TheBodyMindCode_support" target="_blank" style="text-decoration: none;">
+            <a href="#pricing" style="text-decoration: none;">
                 <button style="padding: 14px 36px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--dark); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(201, 169, 97, 0.3);">
-                    💬 Задать вопрос
-                </button>
-            </a>
-        </div>
-    </header>
-
-
-    <!-- HEADER -->
-    <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(13, 13, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201, 169, 97, 0.1);">
-        <div style="max-width: 1400px; margin: 0 auto; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;">
-            <div style="font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">КОД ДЕНЕГ</div>
-            <a href="https://t.me/TheBodyMindCode_support" target="_blank" style="text-decoration: none;">
-                <button style="padding: 14px 36px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); color: var(--dark); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(201, 169, 97, 0.3);">
-                    💬 Задать вопрос
+                    ПЕРЕЗАПИСАТЬ СВОЙ КОД →
                 </button>
             </a>
         </div>
@@ -890,15 +1124,12 @@
                 </div>
                 
                 <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.2; margin-bottom: 40px;">
+                    <span style="font-size: clamp(24px, 4vw, 42px); color: rgba(255,255,255,0.7); font-weight: 600; display: block; margin-bottom: 20px;">Два юриста. Один диплом. Одна специализация.</span>
                     Почему один зарабатывает <span style="color: rgba(255,255,255,0.3); white-space: nowrap;">80 000₽</span>,<br/>
                     а другой — <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; white-space: nowrap;">3 000 000₽</span>?
                 </h2>
                 
-                <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 32px;"></div>
-                
-                <p style="font-size: 20px; color: rgba(255,255,255,0.6); letter-spacing: 1px;">
-                    При одинаковых навыках и дипломе
-                </p>
+                <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 48px;"></div>
             </div>
             
             <!-- Сравнение 2 юристов (ИНФОГРАФИКА) -->
@@ -1789,210 +2020,176 @@
 
     <!-- ТАРИФЫ (ULTRA PREMIUM) -->
     <section class="section" id="pricing">
-        <div style="text-align: center; margin-bottom: 100px;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 96px); font-weight: 800; margin-bottom: 32px; line-height: 1;">
+        <div style="text-align: center; margin-bottom: 80px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(42px, 10vw, 84px); font-weight: 800; margin-bottom: 24px; line-height: 1;">
                 Выбери <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">свой путь</span>
             </h2>
-            <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 24px;"></div>
-            <p style="font-size: 18px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase;">Два формата участия</p>
+            <div style="width: 100px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 20px;"></div>
+            <p style="font-size: 16px; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase;">Два формата участия</p>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 60px; max-width: 1200px; margin: 0 auto;">
+        <div class="pricing-section">
             <!-- БАЗОВЫЙ -->
-            <div style="padding: 80px 60px; background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(20, 20, 20, 0.9)); border: 1px solid rgba(201, 169, 97, 0.2); position: relative; overflow: hidden;">
-                <!-- Watermark -->
-                <div style="position: absolute; top: 40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 180px; font-weight: 800; color: rgba(201, 169, 97, 0.02); line-height: 1; transform: rotate(-10deg);">01</div>
+            <div class="pricing-card basic">
+                <div class="watermark">01</div>
                 
                 <div style="position: relative; z-index: 1;">
-                    <!-- Icon -->
-                    <div style="width: 80px; height: 80px; margin: 0 auto 40px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <div class="card-icon">
+                        <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
                             <circle cx="20" cy="20" r="10" stroke="#C9A961" stroke-width="2"/>
                             <path d="M20 14v12M14 20h12" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
                     
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; text-align: center; margin-bottom: 16px;">БАЗОВЫЙ</h3>
-                    <p style="text-align: center; color: rgba(255,255,255,0.5); margin-bottom: 40px; font-size: 16px; letter-spacing: 1px;">Полная программа трансформации</p>
+                    <h3 class="card-title">БАЗОВЫЙ</h3>
+                    <p class="card-subtitle">Полная программа трансформации</p>
                     
-                    <!-- Price -->
-                    <div style="text-align: center; margin-bottom: 60px;">
-                        <div style="font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 16px;">5,900 ₽</div>
-                        <div style="width: 60px; height: 1px; background: var(--gold); margin: 0 auto;"></div>
+                    <div style="text-align: center;">
+                        <div class="card-price">5,900 ₽</div>
+                        <div class="price-line"></div>
                     </div>
                     
-                    <!-- Features -->
-                    <div style="margin-bottom: 60px;">
-                        <!-- Блок 1: Живые встречи -->
-                        <div style="margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <div style="margin-bottom: 40px;">
+                        <div class="feature-item">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="10" stroke="#C9A961" stroke-width="2"/>
                                     <path d="M9 12l2 2 4-4" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700;">5 живых встреч в Zoom</h4>
+                                <h4>5 живых встреч в Zoom</h4>
                             </div>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; padding-left: 40px;">
-                                По 1,5-2 часа в дни 1, 5, 8, 11, 14. Прямая трансляция с возможностью задать вопросы в чат. Разбор кейсов участников.
-                            </p>
+                            <p class="feature-desc">По 1,5-2 часа. Прямая трансляция + разбор кейсов участников.</p>
                         </div>
                         
-                        <!-- Блок 2: Все материалы -->
-                        <div style="margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <div class="feature-item">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="10" stroke="#C9A961" stroke-width="2"/>
                                     <path d="M9 12l2 2 4-4" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700;">Все материалы навсегда</h4>
+                                <h4>Все материалы навсегда</h4>
                             </div>
-                            <ul style="color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.9; padding-left: 40px; list-style: none;">
+                            <ul class="feature-list">
                                 <li>→ Записи всех 5 эфиров</li>
                                 <li>→ Рабочая тетрадь 225+ полей</li>
-                                <li>→ Банк техник (PDF, 150 страниц)</li>
+                                <li>→ Банк техник (PDF)</li>
                                 <li>→ Чек-листы на каждый день</li>
-                                <li>→ Аудио-конспекты эфиров</li>
                             </ul>
                         </div>
                         
-                        <!-- Блок 3: Telegram -->
-                        <div style="margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <div class="feature-item">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="10" stroke="#C9A961" stroke-width="2"/>
                                     <path d="M9 12l2 2 4-4" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700;">Telegram-канал 14 дней</h4>
+                                <h4>Telegram-канал 14 дней</h4>
                             </div>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; padding-left: 40px;">
-                                Ежедневные посты, практики, поддержка, общение с участниками, шеринг инсайтов.
-                            </p>
+                            <p class="feature-desc">Ежедневные посты, практики, поддержка, общение.</p>
                         </div>
                         
-                        <!-- Блок 4: Домашние задания -->
-                        <div style="margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <div class="feature-item">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="10" stroke="#C9A961" stroke-width="2"/>
                                     <path d="M9 12l2 2 4-4" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700;">Практические задания</h4>
+                                <h4>19 практических техник</h4>
                             </div>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; padding-left: 40px;">
-                                19 уникальных техник с пошаговыми инструкциями. Время выполнения: 15-30 минут в день.
-                            </p>
+                            <p class="feature-desc">Пошаговые инструкции. 15-30 минут в день.</p>
                         </div>
                         
-                        <!-- Блок 5: Доступ -->
-                        <div>
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="#C9A961"/>
+                        <div class="feature-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="12" r="10" fill="#C9A961"/>
                                     <path d="M12 6v6l4 2" stroke="#0D0D0D" stroke-width="1.5"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700;">Доступ навсегда</h4>
+                                <h4>Доступ навсегда</h4>
                             </div>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; padding-left: 40px;">
-                                Все материалы остаются с тобой. Возвращайся к ним когда угодно. Без ограничений по времени.
-                            </p>
+                            <p class="feature-desc">Все материалы остаются с тобой без ограничений.</p>
                         </div>
                     </div>
                     
-                    <button class="btn-primary" style="width: 100%; background: transparent; border: 2px solid var(--gold); color: var(--gold); transition: all 0.4s;" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--dark)';" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)';">Выбрать Базовый</button>
-                    <p style="margin-top: 32px; font-size: 14px; color: rgba(255,255,255,0.4); text-align: center; letter-spacing: 1px;">СТАРТ 22 ЯНВАРЯ</p>
+                    <button class="btn-primary card-btn" style="background: transparent; border: 2px solid var(--gold); color: var(--gold);" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--dark)';" onmouseout="this.style.background='transparent'; this.style.color='var(--gold)';">Выбрать Базовый</button>
+                    <p class="card-footer">СТАРТ 22 ЯНВАРЯ</p>
                 </div>
             </div>
             
             <!-- VIP -->
-            <div style="padding: 80px 60px; background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(20, 20, 20, 0.9)); border: 2px solid var(--gold); position: relative; overflow: hidden;">
-                <!-- Badge -->
-                <div style="position: absolute; top: -12px; right: 40px; padding: 12px 32px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); font-size: 12px; font-weight: 800; letter-spacing: 2px; color: var(--dark);">⚡ VIP</div>
-                
-                <!-- Watermark -->
-                <div style="position: absolute; top: 40px; right: -20px; font-family: 'Playfair Display', serif; font-size: 180px; font-weight: 800; color: rgba(201, 169, 97, 0.04); line-height: 1; transform: rotate(-10deg);">02</div>
+            <div class="pricing-card vip">
+                <div class="vip-tag">⚡ VIP</div>
+                <div class="watermark">02</div>
                 
                 <div style="position: relative; z-index: 1;">
-                    <!-- Icon -->
-                    <div style="width: 80px; height: 80px; margin: 32px auto 40px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center;">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <div class="card-icon">
+                        <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
                             <path d="M20 10l-3 6h6z" fill="#0D0D0D"/>
                             <circle cx="20" cy="22" r="3" fill="#0D0D0D"/>
                             <path d="M14 30h12" stroke="#0D0D0D" stroke-width="2"/>
                         </svg>
                     </div>
                     
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; text-align: center; margin-bottom: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">VIP</h3>
-                    <p style="text-align: center; color: rgba(255,255,255,0.7); margin-bottom: 40px; font-size: 16px; letter-spacing: 1px;">+ личная работа с Дарьей</p>
+                    <h3 class="card-title">VIP</h3>
+                    <p class="card-subtitle">+ личная работа с Дарьей</p>
                     
-                    <!-- Price -->
-                    <div style="text-align: center; margin-bottom: 60px;">
-                        <div style="font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 800; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 16px;">11,900 ₽</div>
-                        <div style="width: 60px; height: 1px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin: 0 auto;"></div>
+                    <div style="text-align: center;">
+                        <div class="card-price">11,900 ₽</div>
+                        <div class="price-line" style="background: linear-gradient(90deg, var(--gold), var(--gold-light));"></div>
                     </div>
                     
-                    <!-- Features -->
-                    <div style="margin-bottom: 60px;">
-                        <!-- Всё из базового -->
-                        <div style="padding: 24px; background: rgba(201, 169, 97, 0.1); margin-bottom: 40px; border-left: 3px solid var(--gold);">
-                            <span style="font-size: 16px; font-weight: 700; color: var(--gold-light); letter-spacing: 1px;">ВСЁ ИЗ БАЗОВОГО +</span>
+                    <div style="margin-bottom: 40px;">
+                        <div class="vip-badge-box">
+                            <span>ВСЁ ИЗ БАЗОВОГО +</span>
                         </div>
                         
-                        <!-- VIP-фичи -->
-                        <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(201, 169, 97, 0.1);">
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <div class="feature-item" style="border-color: rgba(201, 169, 97, 0.1);">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="10" stroke="#E4C990" stroke-width="2"/>
                                     <path d="M12 7l-2 4h4z" fill="#E4C990"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700; color: var(--gold-light);">Личная сессия 60 минут</h4>
+                                <h4>Личная сессия 60 минут</h4>
                             </div>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.7; padding-left: 40px;">
-                                Индивидуальная встреча 1:1 с Дарьей. Глубокая проработка твоего денежного кода. Ответы на все вопросы.
-                            </p>
+                            <p class="feature-desc">Встреча 1:1 с Дарьей. Глубокая проработка твоего денежного кода.</p>
                         </div>
                         
-                        <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(201, 169, 97, 0.1);">
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <div class="feature-item" style="border-color: rgba(201, 169, 97, 0.1);">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="10" stroke="#E4C990" stroke-width="2"/>
                                     <path d="M12 7l-2 4h4z" fill="#E4C990"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700; color: var(--gold-light);">Персональный разбор кода</h4>
+                                <h4>Персональный разбор кода</h4>
                             </div>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.7; padding-left: 40px;">
-                                Письменный анализ твоих установок с конкретными рекомендациями. Индивидуальная стратегия трансформации.
-                            </p>
+                            <p class="feature-desc">Письменный анализ установок + индивидуальная стратегия.</p>
                         </div>
                         
-                        <div style="margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid rgba(201, 169, 97, 0.1);">
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <div class="feature-item" style="border-color: rgba(201, 169, 97, 0.1);">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                                     <rect x="6" y="6" width="12" height="12" stroke="#E4C990" stroke-width="2"/>
                                     <path d="M9 12l2 2 4-4" stroke="#E4C990" stroke-width="2"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700; color: var(--gold-light);">План на 90 дней</h4>
+                                <h4>План на 90 дней</h4>
                             </div>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.7; padding-left: 40px;">
-                                Структурированный план закрепления нового кода. Конкретные действия на ближайшие 3 месяца.
-                            </p>
+                            <p class="feature-desc">Структурированный план закрепления нового кода.</p>
                         </div>
                         
-                        <div>
-                            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <div class="feature-item" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0; border-color: rgba(201, 169, 97, 0.1);">
+                            <div class="feature-header">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                                     <circle cx="12" cy="12" r="10" stroke="#E4C990" stroke-width="2"/>
                                     <circle cx="12" cy="12" r="3" fill="#E4C990"/>
                                 </svg>
-                                <h4 style="font-size: 18px; font-weight: 700; color: var(--gold-light);">Медитация "Изобилие"</h4>
+                                <h4>Медитация "Изобилие"</h4>
                             </div>
-                            <p style="color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.7; padding-left: 40px;">
-                                Авторская аудиомедитация на 20 минут. Работа с подсознанием через голос Дарьи.
-                            </p>
+                            <p class="feature-desc">Авторская аудиомедитация на 20 минут от Дарьи.</p>
                         </div>
                     </div>
                     
-                    <button class="btn-primary" style="width: 100%;">Выбрать VIP →</button>
-                    <p style="margin-top: 32px; font-size: 14px; text-align: center; letter-spacing: 1px;">СТАРТ 22 ЯНВАРЯ • <span style="color: var(--gold-light); font-weight: 700;">ТОЛЬКО 14 МЕСТ</span></p>
+                    <button class="btn-primary card-btn">Выбрать VIP →</button>
+                    <p class="card-footer">СТАРТ 22 ЯНВАРЯ • <span style="color: var(--gold-light); font-weight: 700;">ТОЛЬКО 14 МЕСТ</span></p>
                 </div>
             </div>
         </div>
@@ -2200,7 +2397,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2223,4 +2420,15 @@
             });
         });
         
-        // CTA buttons
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(13, 13, 13, 0.98)';
+            } else {
+                header.style.background = 'rgba(13, 13, 13, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
