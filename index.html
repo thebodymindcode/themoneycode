@@ -406,13 +406,34 @@
             }
             
             /* Badge "Ключевой слой" на мобильных */
-            div[style*="position: absolute; top: -12px"] {
+            .badge-keyslayer {
                 position: relative !important;
                 top: 0 !important;
                 left: 0 !important;
                 transform: none !important;
-                margin-bottom: 16px;
-                display: inline-block;
+                margin: 0 auto 20px !important;
+                display: block !important;
+                width: fit-content !important;
+            }
+            
+            /* Блок ДЕНЕЖНЫЙ ПОТОЛОК на мобильных */
+            div[style*="grid-template-columns: 1fr auto 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+            }
+            
+            div[style*="grid-template-columns: 1fr auto 1fr"] > div:nth-child(2) {
+                display: none !important;
+            }
+            
+            div[style*="grid-template-columns: repeat(3, 1fr)"][style*="gap: 48px"] {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+            
+            div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 24px"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
             }
         }
         
@@ -558,172 +579,6 @@
     <!-- Продолжение в следующей части... -->
 
 
-    <!-- КАК РАБОТАЕТ (ULTRA PREMIUM) -->
-    <section class="section">
-        <div style="text-align: center; margin-bottom: 100px;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 96px); font-weight: 800; margin-bottom: 32px; line-height: 1;">
-                Как работает <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">практикум</span>
-            </h2>
-            <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 24px;"></div>
-            <p style="font-size: 18px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase;">Система глубокой проработки в 3 слоя</p>
-        </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto;">
-            <!-- Блок 1: 5 Живых Встреч -->
-            <div style="padding: 60px 48px; background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(20, 20, 20, 0.9)); border: 1px solid rgba(201, 169, 97, 0.2); position: relative; overflow: hidden;">
-                <!-- Watermark -->
-                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">1</div>
-                
-                <!-- Иконка -->
-                <div style="position: relative; z-index: 1; width: 80px; height: 80px; margin: 0 auto 32px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <circle cx="20" cy="20" r="15" stroke="#C9A961" stroke-width="2"/>
-                        <path d="M16 16l8 4-8 4V16z" fill="#C9A961"/>
-                    </svg>
-                </div>
-                
-                <div style="position: relative; z-index: 1; text-align: center;">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px;">5 Живых Встреч</h3>
-                    <div style="width: 60px; height: 2px; background: var(--gold); margin: 0 auto 32px;"></div>
-                    
-                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 32px; font-weight: 500;">
-                        Zoom-эфиры по 1,5-2 часа
-                    </p>
-                    
-                    <div style="text-align: left; margin-bottom: 32px;">
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
-                            Прямая трансляция с возможностью задать вопросы
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
-                            Разбор кейсов участников в прямом эфире
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
-                            Техники применяем сразу на эфире
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
-                            Записи остаются навсегда
-                        </p>
-                    </div>
-                    
-                    <div style="padding: 20px; background: rgba(201, 169, 97, 0.05); border-left: 3px solid var(--gold);">
-                        <p style="font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6;">
-                            <span style="color: var(--gold-light); font-weight: 600;">График:</span> Дни 1, 5, 8, 11, 14
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Блок 2: Работа между встречами (ЦЕНТРАЛЬНЫЙ - ОСОБЕННЫЙ) -->
-            <div style="padding: 60px 48px; background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(20, 20, 20, 0.9)); border: 2px solid var(--gold); position: relative; overflow: hidden;">
-                <!-- Badge -->
-                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 8px 24px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); font-size: 11px; font-weight: 800; letter-spacing: 2px; color: var(--dark);">КЛЮЧЕВОЙ СЛОЙ</div>
-                
-                <!-- Watermark -->
-                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 800; color: rgba(201, 169, 97, 0.05); line-height: 1;">2</div>
-                
-                <!-- Иконка -->
-                <div style="position: relative; z-index: 1; width: 80px; height: 80px; margin: 32px auto 32px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center;">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <path d="M10 20h20M20 10v20" stroke="#0D0D0D" stroke-width="3" stroke-linecap="round"/>
-                        <circle cx="10" cy="20" r="3" fill="#0D0D0D"/>
-                        <circle cx="30" cy="20" r="3" fill="#0D0D0D"/>
-                        <circle cx="20" cy="10" r="3" fill="#0D0D0D"/>
-                        <circle cx="20" cy="30" r="3" fill="#0D0D0D"/>
-                    </svg>
-                </div>
-                
-                <div style="position: relative; z-index: 1; text-align: center;">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Работа между встречами</h3>
-                    <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin: 0 auto 32px;"></div>
-                    
-                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.95); margin-bottom: 32px; font-weight: 600;">
-                        Домашние задания + Telegram
-                    </p>
-                    
-                    <div style="text-align: left; margin-bottom: 32px;">
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold-light);">→</span>
-                            Ежедневные материалы и практики в Telegram
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold-light);">→</span>
-                            19 уникальных техник с пошаговыми инструкциями
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold-light);">→</span>
-                            Поддержка и шеринг инсайтов с группой
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.8); padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold-light);">→</span>
-                            Время выполнения: 15-30 минут в день
-                        </p>
-                    </div>
-                    
-                    <div style="padding: 20px; background: rgba(201, 169, 97, 0.12); border-left: 3px solid var(--gold-light);">
-                        <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6;">
-                            <span style="color: var(--gold-light); font-weight: 700;">14 дней</span> закрепления нового кода через практику
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Блок 3: Рабочая Тетрадь -->
-            <div style="padding: 60px 48px; background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(20, 20, 20, 0.9)); border: 1px solid rgba(201, 169, 97, 0.2); position: relative; overflow: hidden;">
-                <!-- Watermark -->
-                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">3</div>
-                
-                <!-- Иконка -->
-                <div style="position: relative; z-index: 1; width: 80px; height: 80px; margin: 0 auto 32px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                        <rect x="10" y="8" width="20" height="24" rx="1" stroke="#C9A961" stroke-width="2"/>
-                        <line x1="14" y1="14" x2="26" y2="14" stroke="#C9A961" stroke-width="2"/>
-                        <line x1="14" y1="19" x2="26" y2="19" stroke="#C9A961" stroke-width="2"/>
-                        <line x1="14" y1="24" x2="22" y2="24" stroke="#C9A961" stroke-width="2"/>
-                    </svg>
-                </div>
-                
-                <div style="position: relative; z-index: 1; text-align: center;">
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px;">Рабочая Тетрадь</h3>
-                    <div style="width: 60px; height: 2px; background: var(--gold); margin: 0 auto 32px;"></div>
-                    
-                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 32px; font-weight: 500;">
-                        225+ полей для проработки
-                    </p>
-                    
-                    <div style="text-align: left; margin-bottom: 32px;">
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
-                            Структурированный PDF для письменных практик
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
-                            Пошаговые инструкции для каждой техники
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
-                            Возвращайтесь к тетради когда угодно
-                        </p>
-                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); padding-left: 24px; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
-                            Инструмент для самостоятельной работы
-                        </p>
-                    </div>
-                    
-                    <div style="padding: 20px; background: rgba(201, 169, 97, 0.05); border-left: 3px solid var(--gold);">
-                        <p style="font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6;">
-                            <span style="color: var(--gold-light); font-weight: 600;">Формат:</span> PDF, адаптирован для печати и цифровой работы
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="divider"></div>
     <!-- ДЕНЬГИ — ЭТО НЕ... (ULTRA PREMIUM) -->
     <section class="section">
         <div style="text-align: center; margin-bottom: 100px;">
@@ -819,7 +674,7 @@
                 <div style="width: 80px; height: 2px; background: var(--gold); margin: 0 auto 60px;"></div>
                 
                 <p style="font-size: clamp(24px, 4vw, 36px); line-height: 1.6; margin-bottom: 80px; font-weight: 300;">
-                    Но <span style="color: var(--gold-light); font-weight: 600;">платить тебе не будут</span>.
+                    Но <span style="color: var(--gold-light); font-weight: 600; white-space: nowrap;">платить тебе не будут</span>.
                 </p>
                 
                 <div style="padding: 60px; border: 1px solid rgba(201, 169, 97, 0.2); background: rgba(201, 169, 97, 0.02); margin-top: 80px;">
@@ -827,7 +682,7 @@
                         Зато будут платить тем, кого хорошим не назвать.
                     </p>
                     <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);" spellcheck="false">
-                        Они не занимаются практиками, не ходят в терапию, не жалеют животных и пьют алкоголь, но деньги у них есть.
+                        Они не занимаются практиками, не ходят в терапию, не жалеют животных и пьют алкоголь, <span style="white-space: nowrap;">но деньги у них есть.</span>
                     </p>
                 </div>
             </div>
@@ -1025,6 +880,506 @@
 
     <div class="divider"></div>
 
+    <!-- ДЕНЕЖНЫЙ ПОТОЛОК (ULTRA PREMIUM) -->
+    <section class="section" style="padding: 160px 40px; background: linear-gradient(180deg, rgba(201, 169, 97, 0.02), transparent, rgba(201, 169, 97, 0.02));">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <!-- Заголовок -->
+            <div style="text-align: center; margin-bottom: 120px;">
+                <div style="display: inline-block; padding: 12px 32px; background: rgba(201, 169, 97, 0.1); border: 1px solid var(--gold); margin-bottom: 32px;">
+                    <span style="font-size: 12px; font-weight: 800; letter-spacing: 3px; color: var(--gold-light);">КЛЮЧЕВОЙ ИНСАЙТ</span>
+                </div>
+                
+                <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.2; margin-bottom: 40px;">
+                    Почему один зарабатывает <span style="color: rgba(255,255,255,0.3); white-space: nowrap;">80 000₽</span>,<br/>
+                    а другой — <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; white-space: nowrap;">3 000 000₽</span>?
+                </h2>
+                
+                <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 32px;"></div>
+                
+                <p style="font-size: 20px; color: rgba(255,255,255,0.6); letter-spacing: 1px;">
+                    При одинаковых навыках и дипломе
+                </p>
+            </div>
+            
+            <!-- Сравнение 2 юристов (ИНФОГРАФИКА) -->
+            <div style="max-width: 1200px; margin: 0 auto 120px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 60px; align-items: center;">
+                <!-- ЮРИСТ А (серый) -->
+                <div style="padding: 60px 48px; background: linear-gradient(135deg, rgba(60, 60, 60, 0.3), rgba(40, 40, 40, 0.5)); border: 1px solid rgba(100, 100, 100, 0.3); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 800; color: rgba(100, 100, 100, 0.05); line-height: 1;">A</div>
+                    
+                    <div style="position: relative; z-index: 1; text-align: center;">
+                        <!-- SVG иконка: грустный человек -->
+                        <div style="width: 100px; height: 100px; margin: 0 auto 32px; border: 2px solid rgba(150, 150, 150, 0.5); display: flex; align-items: center; justify-content: center;">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                                <circle cx="25" cy="25" r="20" stroke="rgba(150,150,150,0.6)" stroke-width="2"/>
+                                <circle cx="18" cy="20" r="2" fill="rgba(150,150,150,0.6)"/>
+                                <circle cx="32" cy="20" r="2" fill="rgba(150,150,150,0.6)"/>
+                                <path d="M18 32c2-2 4-2 7-2s5 0 7 2" stroke="rgba(150,150,150,0.6)" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; margin-bottom: 16px; color: rgba(200,200,200,0.8);"><span style="white-space: nowrap;">80 000₽</span></h3>
+                        <p style="font-size: 14px; color: rgba(150,150,150,0.6); margin-bottom: 32px; letter-spacing: 1px;">В МЕСЯЦ</p>
+                        
+                        <div style="text-align: left; padding: 24px; background: rgba(0,0,0,0.3);">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 2v16M6 6l4-4 4 4M6 14l4 4 4-4" stroke="rgba(150,150,150,0.5)" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span style="font-size: 15px; color: rgba(200,200,200,0.7);">В найме, 12 часов в день</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <rect x="3" y="5" width="14" height="12" rx="1" stroke="rgba(150,150,150,0.5)" stroke-width="2"/>
+                                    <path d="M7 5V3M13 5V3M3 9h14" stroke="rgba(150,150,150,0.5)" stroke-width="2"/>
+                                </svg>
+                                <span style="font-size: 15px; color: rgba(200,200,200,0.7);">Знает больше законов</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="10" r="7" stroke="rgba(150,150,150,0.5)" stroke-width="2"/>
+                                    <path d="M10 6v4l3 3" stroke="rgba(150,150,150,0.5)" stroke-width="2"/>
+                                </svg>
+                                <span style="font-size: 15px; color: rgba(200,200,200,0.7);">Работает усерднее</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VS -->
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--gold);">VS</span>
+                    </div>
+                </div>
+                
+                <!-- ЮРИСТ Б (золотой) -->
+                <div style="padding: 60px 48px; background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(228, 201, 144, 0.05)); border: 2px solid var(--gold); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 800; color: rgba(201, 169, 97, 0.08); line-height: 1;">Б</div>
+                    
+                    <div style="position: relative; z-index: 1; text-align: center;">
+                        <!-- SVG иконка: довольный человек -->
+                        <div style="width: 100px; height: 100px; margin: 0 auto 32px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center;">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                                <circle cx="25" cy="25" r="20" stroke="#0D0D0D" stroke-width="2"/>
+                                <circle cx="18" cy="20" r="2" fill="#0D0D0D"/>
+                                <circle cx="32" cy="20" r="2" fill="#0D0D0D"/>
+                                <path d="M18 28c2 3 4 4 7 4s5-1 7-4" stroke="#0D0D0D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; margin-bottom: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style="white-space: nowrap;">3 000 000₽</span></h3>
+                        <p style="font-size: 14px; color: var(--gold); margin-bottom: 32px; letter-spacing: 1px; font-weight: 600;">ЗА ОДНО ДЕЛО</p>
+                        
+                        <div style="text-align: left; padding: 24px; background: rgba(201, 169, 97, 0.08); border-left: 3px solid var(--gold);">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 2L3 7v8c0 3 2 5 7 5s7-2 7-5V7l-7-5z" stroke="#C9A961" stroke-width="2"/>
+                                    <path d="M7 10l2 2 4-4" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span style="font-size: 15px; color: rgba(255,255,255,0.9);">3 дела в год, остальное — жизнь</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="10" r="7" stroke="#C9A961" stroke-width="2"/>
+                                    <circle cx="10" cy="10" r="2" fill="#C9A961"/>
+                                </svg>
+                                <span style="font-size: 15px; color: rgba(255,255,255,0.9);">Знает достаточно</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 3l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6l2-6z" stroke="#C9A961" stroke-width="2"/>
+                                </svg>
+                                <span style="font-size: 15px; color: rgba(255,255,255,0.9);">Работает умнее</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ключевой инсайт -->
+            <div style="max-width: 900px; margin: 0 auto 120px; text-align: center; padding: 60px; background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(20, 20, 20, 0.8)); border: 1px solid rgba(201, 169, 97, 0.3);">
+                <p style="font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); line-height: 1.4; color: rgba(255,255,255,0.95); margin-bottom: 24px;">
+                    Разница не в компетенциях.
+                </p>
+                <p style="font-size: clamp(28px, 4.5vw, 42px); line-height: 1.4;">
+                    Разница в <span style="color: var(--gold-light); font-weight: 700;">цифре</span>, которую каждый носит <span style="color: var(--gold-light); font-weight: 700;">в голове</span>.
+                </p>
+            </div>
+            
+            <!-- Исследование Гарварда -->
+            <div style="max-width: 1200px; margin: 0 auto 120px;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <div style="display: inline-block; padding: 12px 32px; background: rgba(201, 169, 97, 0.1); border: 1px solid var(--gold); margin-bottom: 24px;">
+                        <span style="font-size: 12px; font-weight: 800; letter-spacing: 3px; color: var(--gold-light);">НАУЧНОЕ ДОКАЗАТЕЛЬСТВО</span>
+                    </div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 56px); font-weight: 700; margin-bottom: 24px;">Эксперимент Гарварда</h3>
+                    <div style="width: 80px; height: 2px; background: var(--gold); margin: 0 auto;"></div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;">
+                    <!-- Шаг 1 -->
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; margin: 0 auto 32px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <span style="position: absolute; top: -16px; right: -16px; width: 32px; height: 32px; background: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--dark);">1</span>
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                                <rect x="10" y="15" width="30" height="20" rx="2" stroke="#C9A961" stroke-width="2"/>
+                                <path d="M20 22h10M20 28h6" stroke="#C9A961" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--gold-light);">Участникам показали число</h4>
+                        <p style="color: rgba(255,255,255,0.6); line-height: 1.7; font-size: 15px;">Группа А увидела «65»<br/>Группа Б увидела «15»</p>
+                    </div>
+                    
+                    <!-- Шаг 2 -->
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; margin: 0 auto 32px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <span style="position: absolute; top: -16px; right: -16px; width: 32px; height: 32px; background: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--dark);">2</span>
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                                <circle cx="25" cy="20" r="8" stroke="#C9A961" stroke-width="2"/>
+                                <path d="M25 30v8M20 35h10" stroke="#C9A961" stroke-width="2"/>
+                                <path d="M15 40c0-5 4-8 10-8s10 3 10 8" stroke="#C9A961" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--gold-light);">Попросили назвать желаемую зарплату</h4>
+                        <p style="color: rgba(255,255,255,0.6); line-height: 1.7; font-size: 15px;">Без связи с числом<br/>(якобы другой тест)</p>
+                    </div>
+                    
+                    <!-- Шаг 3 -->
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; margin: 0 auto 32px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; position: relative;">
+                            <span style="position: absolute; top: -16px; right: -16px; width: 32px; height: 32px; background: var(--dark); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--gold);">3</span>
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                                <path d="M25 10l5 10h10l-8 7 3 10-10-6-10 6 3-10-8-7h10l5-10z" stroke="#0D0D0D" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--gold-light);">Результат</h4>
+                        <p style="color: rgba(255,255,255,0.9); line-height: 1.7; font-size: 16px; font-weight: 600;">Группа А запросила на<br/><span style="font-size: 32px; color: var(--gold-light);">40% БОЛЬШЕ</span></p>
+                    </div>
+                </div>
+                
+                <!-- Вывод -->
+                <div style="margin-top: 60px; padding: 48px; background: rgba(201, 169, 97, 0.05); border-left: 4px solid var(--gold);">
+                    <p style="font-size: 20px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 24px;">
+                        Случайное число, <span style="color: var(--gold-light); font-weight: 600;">не имеющее отношения к навыкам</span>, изменило восприятие собственной стоимости за СЕКУНДЫ.
+                    </p>
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.7);">
+                        А какие числа записывались в тебя <span style="color: var(--gold-light); font-weight: 600;">ГОДАМИ</span>?
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Термостат (визуализация) -->
+            <div style="max-width: 1000px; margin: 0 auto 120px;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 56px); font-weight: 700; margin-bottom: 24px;">Как работает «денежный термостат»</h3>
+                    <div style="width: 80px; height: 2px; background: var(--gold); margin: 0 auto 32px;"></div>
+                    <p style="font-size: 18px; color: rgba(255,255,255,0.6);">Твой мозг НЕ считает. Он СРАВНИВАЕТ.</p>
+                </div>
+                
+                <!-- Визуализация термостата -->
+                <div style="padding: 60px 48px; background: linear-gradient(180deg, rgba(20, 20, 20, 0.8), rgba(10, 10, 10, 0.9)); border: 1px solid rgba(201, 169, 97, 0.2); position: relative;">
+                    <!-- Шкала термостата -->
+                    <div style="max-width: 600px; margin: 0 auto 60px; position: relative; height: 400px;">
+                        <!-- Вертикальная линия -->
+                        <div style="position: absolute; left: 50%; transform: translateX(-50%); width: 3px; height: 100%; background: linear-gradient(180deg, var(--gold), rgba(201, 169, 97, 0.1));"></div>
+                        
+                        <!-- Уровень 1: Новый потолок -->
+                        <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; display: flex; align-items: center; justify-content: space-between;">
+                            <div style="flex: 1; text-align: right; padding-right: 40px;">
+                                <div style="font-size: 32px; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold-light); white-space: nowrap;">1 000 000₽</div>
+                                <div style="font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px;">НОВЫЙ ПОТОЛОК</div>
+                            </div>
+                            <div style="width: 24px; height: 24px; background: var(--gold); transform: rotate(45deg); border: 3px solid var(--dark);"></div>
+                            <div style="flex: 1; padding-left: 40px;">
+                                <svg width="60" height="40" viewBox="0 0 60 40" fill="none">
+                                    <path d="M5 20h50M50 20l-8-8M50 20l-8 8" stroke="#C9A961" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        <!-- Уровень 2: Текущий потолок -->
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; display: flex; align-items: center; justify-content: space-between;">
+                            <div style="flex: 1; text-align: right; padding-right: 40px;">
+                                <div style="font-size: 28px; font-family: 'Playfair Display', serif; font-weight: 700; color: rgba(200, 200, 200, 0.6); white-space: nowrap;">80 000₽</div>
+                                <div style="font-size: 13px; color: rgba(150, 150, 150, 0.5); margin-top: 8px;">ТЕКУЩИЙ ПОТОЛОК</div>
+                            </div>
+                            <div style="width: 20px; height: 20px; background: rgba(150, 150, 150, 0.4); border-radius: 50%; border: 2px solid rgba(150, 150, 150, 0.6);"></div>
+                            <div style="flex: 1; padding-left: 40px;">
+                                <div style="font-size: 14px; color: rgba(150, 150, 150, 0.6);">
+                                    ← Здесь ты застрял
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Уровень 3: Дно -->
+                        <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="font-size: 18px; color: rgba(100, 100, 100, 0.4);">0</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Факторы формирования -->
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+                        <div style="padding: 32px 24px; background: rgba(0, 0, 0, 0.4); border-left: 3px solid rgba(201, 169, 97, 0.5); text-align: center;">
+                            <div style="font-size: 36px; margin-bottom: 16px;">👨‍👩‍👦</div>
+                            <div style="font-size: 16px; font-weight: 700; color: var(--gold-light); margin-bottom: 12px;">Зарплата родителей</div>
+                            <div style="font-size: 14px; color: rgba(255,255,255,0.5);">= «норма»</div>
+                        </div>
+                        
+                        <div style="padding: 32px 24px; background: rgba(0, 0, 0, 0.4); border-left: 3px solid rgba(201, 169, 97, 0.5); text-align: center;">
+                            <div style="font-size: 36px; margin-bottom: 16px;">👥</div>
+                            <div style="font-size: 16px; font-weight: 700; color: var(--gold-light); margin-bottom: 12px;">Доход коллег</div>
+                            <div style="font-size: 14px; color: rgba(255,255,255,0.5);">= «реалистично»</div>
+                        </div>
+                        
+                        <div style="padding: 32px 24px; background: rgba(0, 0, 0, 0.4); border-left: 3px solid rgba(201, 169, 97, 0.5); text-align: center;">
+                            <div style="font-size: 36px; margin-bottom: 16px;">💼</div>
+                            <div style="font-size: 16px; font-weight: 700; color: var(--gold-light); margin-bottom: 12px;">Прошлая работа</div>
+                            <div style="font-size: 14px; color: rgba(255,255,255,0.5);">= «твой уровень»</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 48px; padding: 32px; background: rgba(201, 169, 97, 0.05); border: 1px solid rgba(201, 169, 97, 0.2); text-align: center;">
+                        <p style="font-size: 20px; line-height: 1.7; color: rgba(255,255,255,0.9);">
+                            Мозг вычисляет <span style="color: var(--gold-light); font-weight: 600;">диапазон</span> и говорит:<br/>
+                            <span style="font-style: italic; color: rgba(255,255,255,0.7);">«Вот твой потолок. Выше — опасно.»</span>
+                        </p>
+                        <p style="font-size: 18px; margin-top: 24px; color: var(--gold-light); font-weight: 600;">
+                            И ты живёшь в этом коридоре. Даже не замечая стен.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ключевой вопрос -->
+            <div style="max-width: 1000px; margin: 0 auto; padding: 80px 60px; background: linear-gradient(135deg, rgba(201, 169, 97, 0.1), rgba(228, 201, 144, 0.05)); border: 3px solid var(--gold); position: relative;">
+                <!-- Decorative corner -->
+                <div style="position: absolute; top: -3px; left: -3px; width: 60px; height: 60px; border-top: 3px solid var(--gold-light); border-left: 3px solid var(--gold-light);"></div>
+                <div style="position: absolute; top: -3px; right: -3px; width: 60px; height: 60px; border-top: 3px solid var(--gold-light); border-right: 3px solid var(--gold-light);"></div>
+                <div style="position: absolute; bottom: -3px; left: -3px; width: 60px; height: 60px; border-bottom: 3px solid var(--gold-light); border-left: 3px solid var(--gold-light);"></div>
+                <div style="position: absolute; bottom: -3px; right: -3px; width: 60px; height: 60px; border-bottom: 3px solid var(--gold-light); border-right: 3px solid var(--gold-light);"></div>
+                
+                <div style="text-align: center;">
+                    <div style="display: inline-block; padding: 12px 32px; background: var(--gold); margin-bottom: 40px;">
+                        <span style="font-size: 11px; font-weight: 800; letter-spacing: 3px; color: var(--dark);">ВОПРОС, КОТОРЫЙ ЛОМАЕТ ПОТОЛОК</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 48px;">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" style="margin: 0 auto;">
+                            <circle cx="40" cy="40" r="35" stroke="#C9A961" stroke-width="3"/>
+                            <path d="M40 25v15M40 50v5" stroke="#C9A961" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    
+                    <p style="font-family: 'Playfair Display', serif; font-size: clamp(28px, 4.5vw, 42px); line-height: 1.5; color: rgba(255,255,255,0.95); margin-bottom: 48px; font-weight: 600;">
+                        «Что должно быть правдой обо мне,<br/>
+                        чтобы <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">эта сумма</span> была <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">нормальной</span>?»
+                    </p>
+                    
+                    <div style="padding: 32px; background: rgba(0, 0, 0, 0.4); border-left: 4px solid var(--gold);">
+                        <p style="font-size: 20px; line-height: 1.7; color: rgba(255,255,255,0.9); margin-bottom: 16px;">
+                            Не «как заработать» → а <span style="color: var(--gold-light); font-weight: 700;">«КЕМ Я ДОЛЖЕН БЫТЬ»</span>
+                        </p>
+                        <p style="font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.6);">
+                            Мозг начнёт искать ответ. Это неизбежно.<br/>
+                            Он не умеет игнорировать вопросы.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Финальный переход -->
+            <div style="max-width: 900px; margin: 100px auto 0; text-align: center; padding: 60px 48px; background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(20, 20, 20, 0.9)); border: 1px solid rgba(201, 169, 97, 0.3);">
+                <p style="font-size: 22px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 32px;">
+                    Ты не продаёшь услугу.<br/>
+                    Ты транслируешь свою <span style="color: var(--gold-light); font-weight: 700;">САМООЦЕНКУ</span>.
+                </p>
+                
+                <div style="width: 120px; height: 2px; background: var(--gold); margin: 0 auto 32px;"></div>
+                
+                <p style="font-family: 'Playfair Display', serif; font-size: 28px; line-height: 1.6; color: rgba(255,255,255,0.95); margin-bottom: 40px;">
+                    Практикум «Код денег» работает<br/>
+                    именно с этой <span style="color: var(--gold-light);">внутренней цифрой</span>.
+                </p>
+                
+                <div style="padding: 32px; background: rgba(201, 169, 97, 0.08); border: 2px solid var(--gold);">
+                    <p style="font-size: 24px; line-height: 1.5; color: var(--gold-light); font-weight: 700;">
+                        Сначала цифра в голове.<br/>
+                        Потом цифра на счёте.<br/><br/>
+                        <span style="font-size: 20px; color: rgba(255,255,255,0.7);">НЕ НАОБОРОТ.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- КАК РАБОТАЕТ (ULTRA PREMIUM) -->
+    <section class="section">
+        <div style="text-align: center; margin-bottom: 100px;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 96px); font-weight: 800; margin-bottom: 32px; line-height: 1;">
+                <span style="white-space: nowrap;">Как работает <span style="background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">практикум</span></span>
+            </h2>
+            <div style="width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 0 auto 24px;"></div>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase; white-space: nowrap;">Система глубокой проработки в 3 слоя</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 60px; max-width: 1300px; margin: 0 auto;">
+            <!-- Блок 1: 5 Живых Встреч -->
+            <div style="padding: 60px 48px; background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(20, 20, 20, 0.9)); border: 1px solid rgba(201, 169, 97, 0.2); position: relative; overflow: hidden;">
+                <!-- Watermark -->
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">1</div>
+                
+                <!-- Иконка -->
+                <div style="position: relative; z-index: 1; width: 80px; height: 80px; margin: 0 auto 32px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="15" stroke="#C9A961" stroke-width="2"/>
+                        <path d="M16 16l8 4-8 4V16z" fill="#C9A961"/>
+                    </svg>
+                </div>
+                
+                <div style="position: relative; z-index: 1; text-align: center;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px;">5 Живых Встреч</h3>
+                    <div style="width: 60px; height: 2px; background: var(--gold); margin: 0 auto 32px;"></div>
+                    
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 32px; font-weight: 500;">
+                        Zoom-эфиры по 1,5-2 часа
+                    </p>
+                    
+                    <div style="text-align: left; margin-bottom: 32px;">
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
+                            Прямая трансляция с возможностью задать вопросы
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
+                            Разбор кейсов участников в прямом эфире
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
+                            Техники применяем сразу на эфире
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
+                            Записи остаются навсегда
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 20px; background: rgba(201, 169, 97, 0.05); border-left: 3px solid var(--gold);">
+                        <p style="font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6;">
+                            <span style="color: var(--gold-light); font-weight: 600;">График:</span> Дни 1, 5, 8, 11, 14
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок 2: Работа между встречами (ЦЕНТРАЛЬНЫЙ - ОСОБЕННЫЙ) -->
+            <div style="padding: 60px 48px; background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), rgba(20, 20, 20, 0.9)); border: 2px solid var(--gold); position: relative; overflow: hidden;">
+                <!-- Badge -->
+                
+                <!-- Watermark -->
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 800; color: rgba(201, 169, 97, 0.05); line-height: 1;">2</div>
+                
+                <!-- Иконка -->
+                <div style="position: relative; z-index: 1; width: 80px; height: 80px; margin: 32px auto 32px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center;">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M10 20h20M20 10v20" stroke="#0D0D0D" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="10" cy="20" r="3" fill="#0D0D0D"/>
+                        <circle cx="30" cy="20" r="3" fill="#0D0D0D"/>
+                        <circle cx="20" cy="10" r="3" fill="#0D0D0D"/>
+                        <circle cx="20" cy="30" r="3" fill="#0D0D0D"/>
+                    </svg>
+                </div>
+                
+                <div style="position: relative; z-index: 1; text-align: center;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Работа между встречами</h3>
+                    <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin: 0 auto 32px;"></div>
+                    
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.95); margin-bottom: 32px; font-weight: 600;">
+                        Домашние задания + Telegram
+                    </p>
+                    
+                    <div style="text-align: left; margin-bottom: 32px;">
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold-light);">→</span>
+                            Ежедневные материалы и практики в Telegram
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold-light);">→</span>
+                            19 уникальных техник с пошаговыми инструкциями
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold-light);">→</span>
+                            Поддержка и шеринг инсайтов с группой
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.8); padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold-light);">→</span>
+                            Время выполнения: 15-30 минут в день
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 20px; background: rgba(201, 169, 97, 0.12); border-left: 3px solid var(--gold-light);">
+                        <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6;">
+                            <span style="color: var(--gold-light); font-weight: 700;">14 дней</span> закрепления нового кода через практику
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок 3: Рабочая Тетрадь -->
+            <div style="padding: 60px 48px; background: linear-gradient(135deg, rgba(26, 26, 26, 0.6), rgba(20, 20, 20, 0.9)); border: 1px solid rgba(201, 169, 97, 0.2); position: relative; overflow: hidden;">
+                <!-- Watermark -->
+                <div style="position: absolute; top: 24px; right: 24px; font-family: 'Playfair Display', serif; font-size: 140px; font-weight: 800; color: rgba(201, 169, 97, 0.03); line-height: 1;">3</div>
+                
+                <!-- Иконка -->
+                <div style="position: relative; z-index: 1; width: 80px; height: 80px; margin: 0 auto 32px; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center;">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <rect x="10" y="8" width="20" height="24" rx="1" stroke="#C9A961" stroke-width="2"/>
+                        <line x1="14" y1="14" x2="26" y2="14" stroke="#C9A961" stroke-width="2"/>
+                        <line x1="14" y1="19" x2="26" y2="19" stroke="#C9A961" stroke-width="2"/>
+                        <line x1="14" y1="24" x2="22" y2="24" stroke="#C9A961" stroke-width="2"/>
+                    </svg>
+                </div>
+                
+                <div style="position: relative; z-index: 1; text-align: center;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px;">Рабочая Тетрадь</h3>
+                    <div style="width: 60px; height: 2px; background: var(--gold); margin: 0 auto 32px;"></div>
+                    
+                    <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 32px; font-weight: 500;">
+                        225+ полей для проработки
+                    </p>
+                    
+                    <div style="text-align: left; margin-bottom: 32px;">
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
+                            Структурированный PDF для письменных практик
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
+                            Пошаговые инструкции для каждой техники
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
+                            Возвращайтесь к тетради когда угодно
+                        </p>
+                        <p style="font-size: 15px; color: rgba(255,255,255,0.7); padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--gold);">→</span>
+                            Инструмент для самостоятельной работы
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 20px; background: rgba(201, 169, 97, 0.05); border-left: 3px solid var(--gold);">
+                        <p style="font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6;">
+                            <span style="color: var(--gold-light); font-weight: 600;">Формат:</span> PDF, адаптирован для печати и цифровой работы
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
     <!-- УНИКАЛЬНЫЕ ПРАКТИКИ -->
     <section class="section">
         <h2 class="section-title">
@@ -1188,7 +1543,6 @@
     <div class="divider"></div>
 
 
-    <!-- ТРАНСФОРМАЦИЯ (ULTRA PREMIUM) -->
     <section class="section">
         <div style="text-align: center; margin-bottom: 100px;">
             <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(56px, 10vw, 96px); font-weight: 800; margin-bottom: 32px; line-height: 1;">
@@ -1371,10 +1725,10 @@
         <!-- Подпись снизу -->
         <div style="max-width: 800px; margin: 80px auto 0; text-align: center; padding: 40px; border: 1px solid rgba(201, 169, 97, 0.2); background: rgba(201, 169, 97, 0.02);">
             <p style="font-size: 18px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 16px;" spellcheck="false">
-                Это не про <span style="color: var(--gold-light); font-weight: 600;">«стать миллионером за 2 недели»</span>
+                Это не про <span style="color: var(--gold-light); font-weight: 600; white-space: nowrap;">«стать миллионером за 2 недели»</span>
             </p>
             <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.5);" spellcheck="false">
-                Это про изменение внутреннего состояния, которое делает возможным устойчивый рост дохода
+                Это про изменение внутреннего состояния, которое делает возможным <span style="white-space: nowrap;">устойчивый рост дохода</span>
             </p>
         </div>
     </section>
