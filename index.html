@@ -32,6 +32,8 @@
             background: var(--dark);
             color: #ffffff;
             overflow-x: hidden;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -752,6 +754,92 @@
                 padding-left: 20px !important;
                 padding-right: 20px !important;
             }
+
+            /* HEADER - HIDE on mobile, use bottom sticky instead */
+            header {
+                display: none !important;
+            }
+
+            /* HERO - no need for top margin since header hidden */
+            .hero {
+                padding: 40px 16px 40px !important;
+                margin-top: 0 !important;
+            }
+            .hero > div {
+                padding: 20px 0 !important;
+            }
+            .hero-logo .word-kod {
+                font-size: clamp(3rem, 15vw, 5rem) !important;
+            }
+            .hero-logo .word-deneg {
+                font-size: clamp(3rem, 15vw, 5rem) !important;
+            }
+            .hero-tagline {
+                font-size: 1rem !important;
+            }
+
+            /* Inline padding:60px 40px */
+            [style*="padding: 60px 40px"] {
+                padding: 32px 16px !important;
+            }
+            [style*="padding: 60px 48px"] {
+                padding: 32px 16px !important;
+            }
+            [style*="padding: 60px"] {
+                padding: 32px 16px !important;
+            }
+            [style*="gap: 60px"] {
+                gap: 24px !important;
+            }
+            [style*="gap: 48px"] {
+                gap: 20px !important;
+            }
+
+            /* Stats section */
+            .stats-grid {
+                padding: 48px 16px !important;
+                gap: 24px !important;
+            }
+
+            /* FAQ */
+            .faq-question {
+                font-size: 16px !important;
+                padding: 20px 16px !important;
+            }
+            .faq-answer {
+                padding: 0 16px 20px !important;
+                font-size: 14px !important;
+            }
+
+            /* STICKY BOTTOM */
+            .sticky-bot { display: block !important; }
+        }
+
+        /* STICKY BOTTOM CTA */
+        .sticky-bot {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 999;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 10px 16px;
+            box-shadow: 0 -2px 16px rgba(0,0,0,.3);
+            border-top: 1px solid rgba(201, 169, 97, 0.15);
+            text-align: center;
+        }
+        .sticky-bot a {
+            display: block;
+            padding: 11px;
+            background: linear-gradient(135deg, #C9A961, #D4B96E);
+            color: #0D0D0D;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 6px;
         }
     </style>
 </head>
@@ -2438,5 +2526,11 @@
             }
         });
     </script>
+<div class="sticky-bot" id="stickyBot"><a href="https://payform.ru/6haon9d/">Получить доступ</a></div>
+
+<script>
+var sb=document.getElementById("stickyBot");
+if(sb)window.addEventListener("scroll",function(){var y=window.scrollY,dH=document.documentElement.scrollHeight,wH=window.innerHeight;sb.style.display=(y>500&&y<dH-wH-200)?"block":""});
+</script>
 </body>
 </html>
